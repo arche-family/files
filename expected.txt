@@ -11,22 +11,22 @@
            #24 "Files"
        #7 div.part
          #8 div.rows
-           #25 div.row [data-k="d:Documents"]
+           #25 button.row [data-k="d:Documents"]
              #26 div.name
                #27 "Documents"
              #28 div.what
                #29 "Folder"
-           #30 div.row [data-k="d:Download"]
+           #30 button.row [data-k="d:Download"]
              #31 div.name
                #32 "Download"
              #33 div.what
                #34 "Folder"
-           #35 div.row [data-k="d:Music"]
+           #35 button.row [data-k="d:Music"]
              #36 div.name
                #37 "Music"
              #38 div.what
                #39 "Folder"
-           #40 div.row [data-k="d:Pictures"]
+           #40 button.row [data-k="d:Pictures"]
              #41 div.name
                #42 "Pictures"
              #43 div.what
@@ -59,12 +59,12 @@
            #45 "Documents"
        #7 div.part
          #8 div.rows
-           #46 div.row [data-k="f:list.txt"]
+           #46 button.row [data-k="f:list.txt"]
              #47 div.name
                #48 "list.txt"
              #49 div.what
                #50 "20 B"
-           #51 div.row [data-k="f:readme.txt"]
+           #51 button.row [data-k="f:readme.txt"]
              #52 div.name
                #53 "readme.txt"
              #54 div.what
@@ -97,12 +97,12 @@
            #56 "Documents"
        #7 div.part.hidden
          #8 div.rows
-           #46 div.row [data-k="f:list.txt"]
+           #46 button.row [data-k="f:list.txt"]
              #47 div.name
                #48 "list.txt"
              #49 div.what
                #50 "20 B"
-           #51 div.row [data-k="f:readme.txt"]
+           #51 button.row [data-k="f:readme.txt"]
              #52 div.name
                #53 "readme.txt"
              #54 div.what
@@ -138,12 +138,12 @@
            #60 "Documents"
        #7 div.part
          #8 div.rows
-           #61 div.row [data-k="f:list.txt"]
+           #61 button.row [data-k="f:list.txt"]
              #62 div.name
                #63 "list.txt"
              #64 div.what
                #65 "20 B"
-           #66 div.row [data-k="f:readme.txt"]
+           #66 button.row [data-k="f:readme.txt"]
              #67 div.name
                #68 "readme.txt"
              #69 div.what
@@ -179,22 +179,22 @@
            #71 "Files"
        #7 div.part
          #8 div.rows
-           #72 div.row [data-k="d:Documents"]
+           #72 button.row [data-k="d:Documents"]
              #73 div.name
                #74 "Documents"
              #75 div.what
                #76 "Folder"
-           #77 div.row [data-k="d:Download"]
+           #77 button.row [data-k="d:Download"]
              #78 div.name
                #79 "Download"
              #80 div.what
                #81 "Folder"
-           #82 div.row [data-k="d:Music"]
+           #82 button.row [data-k="d:Music"]
              #83 div.name
                #84 "Music"
              #85 div.what
                #86 "Folder"
-           #87 div.row [data-k="d:Pictures"]
+           #87 button.row [data-k="d:Pictures"]
              #88 div.name
                #89 "Pictures"
              #90 div.what
@@ -230,22 +230,22 @@
            #71 "Files"
        #7 div.part
          #8 div.rows
-           #72 div.row [data-k="d:Documents"]
+           #72 button.row [data-k="d:Documents"]
              #73 div.name
                #74 "Documents"
              #75 div.what
                #76 "Folder"
-           #77 div.row [data-k="d:Download"]
+           #77 button.row [data-k="d:Download"]
              #78 div.name
                #79 "Download"
              #80 div.what
                #81 "Folder"
-           #82 div.row [data-k="d:Music"]
+           #82 button.row [data-k="d:Music"]
              #83 div.name
                #84 "Music"
              #85 div.what
                #86 "Folder"
-           #87 div.row [data-k="d:Pictures"]
+           #87 button.row [data-k="d:Pictures"]
              #88 div.name
                #89 "Pictures"
              #90 div.what
@@ -281,27 +281,27 @@
            #92 "Files"
        #7 div.part
          #8 div.rows
-           #93 div.row [data-k="d:Documents"]
+           #93 button.row [data-k="d:Documents"]
              #94 div.name
                #95 "Documents"
              #96 div.what
                #97 "Folder"
-           #98 div.row [data-k="d:Download"]
+           #98 button.row [data-k="d:Download"]
              #99 div.name
                #100 "Download"
              #101 div.what
                #102 "Folder"
-           #103 div.row [data-k="d:Music"]
+           #103 button.row [data-k="d:Music"]
              #104 div.name
                #105 "Music"
              #106 div.what
                #107 "Folder"
-           #108 div.row [data-k="d:Pictures"]
+           #108 button.row [data-k="d:Pictures"]
              #109 div.name
                #110 "Pictures"
              #111 div.what
                #112 "Folder"
-           #113 div.row [data-k="d:Trips"]
+           #113 button.row [data-k="d:Trips"]
              #114 div.name
                #115 "Trips"
              #116 div.what
@@ -370,22 +370,22 @@
            #121 "Files"
        #7 div.part
          #8 div.rows
-           #122 div.row [data-k="d:Documents"]
+           #122 button.row [data-k="d:Documents"]
              #123 div.name
                #124 "Documents"
              #125 div.what
                #126 "Folder"
-           #127 div.row [data-k="d:Download"]
+           #127 button.row [data-k="d:Download"]
              #128 div.name
                #129 "Download"
              #130 div.what
                #131 "Folder"
-           #132 div.row [data-k="d:Music"]
+           #132 button.row [data-k="d:Music"]
              #133 div.name
                #134 "Music"
              #135 div.what
                #136 "Folder"
-           #137 div.row [data-k="d:Pictures"]
+           #137 button.row [data-k="d:Pictures"]
              #138 div.name
                #139 "Pictures"
              #140 div.what
@@ -421,7 +421,7 @@
            #142 "Pictures"
        #7 div.part
          #8 div.rows
-           #143 div.row [data-k="f:sky.png"]
+           #143 button.row [data-k="f:sky.png"]
              #144 div.name
                #145 "sky.png"
              #146 div.what
@@ -457,7 +457,7 @@
            #148 "Pictures"
        #7 div.part.hidden
          #8 div.rows
-           #143 div.row [data-k="f:sky.png"]
+           #143 button.row [data-k="f:sky.png"]
              #144 div.name
                #145 "sky.png"
              #146 div.what
