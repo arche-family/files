@@ -1,0 +1,6 @@
+name: files
+version: 1
+title: Files
+about: The phone's shared files, folder by folder, in Arche
+publisher: arche
+needs: files
