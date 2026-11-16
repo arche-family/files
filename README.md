@@ -23,7 +23,7 @@ With [arche-lang](https://github.com/arche-family/arche-lang) checked out next t
 
 ## Test
 
-`media/` is a folder of shared files as the phone keeps them: two text files in Documents, one in Download, a small PNG in Pictures and a short WAV in Music. `headless` holds the taps and the typing of a headless run, with `media/` shared as the phone shares its files (arche-wasm's `--share`): Documents opened and a text file shown; up; a folder made, opened and deleted; Pictures opened, its picture shown (no preview) and deleted. `expected.txt` holds what arche-wasm's interpreter said, as Nimadir's shell does not run the phone's world. `app-check.sh` runs the app with arche-wasm, by the interpreter and by the JIT, each in a fresh copy of this directory, and compares what it says with `expected.txt`. CI runs it on every push.
+`media/` is a folder of shared files as the phone keeps them: two text files in Documents, one in Download, a small PNG in Pictures and a short WAV in Music. `headless` holds the taps and the typing of a headless run, with `media/` shared as the phone shares its files (arche-wasm's `--share`): Documents opened and a text file shown; up; a folder made, opened and deleted; Pictures opened, its picture shown (no preview) and deleted. `expected.txt` holds what arche-wasm's interpreter said, as Nimadir's shell does not run the phone's world. `app-check.sh` runs the app with arche-wasm, by the interpreter and by the JIT, each in a fresh copy of this directory, and compares what it says with `expected.txt`. CI runs it when started by hand (Actions' Run workflow).
 
 ```sh
 ../arche-lang/wasm/app-check.sh .
