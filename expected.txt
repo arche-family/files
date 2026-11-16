@@ -1,547 +1,754 @@
 === headless run: 13 frames ===
 
 --- frame 0  (clicks fed to guest: []) ---
-   [page] 44 nodes
+   [page] 67 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up.hidden [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #24 "Files"
-       #7 div.part
-         #8 div.rows
-           #25 button.row [data-k="d:Documents"]
-             #26 div.name
-               #27 "Documents"
-             #28 div.what
-               #29 "Folder"
-           #30 button.row [data-k="d:Download"]
-             #31 div.name
-               #32 "Download"
-             #33 div.what
-               #34 "Folder"
-           #35 button.row [data-k="d:Music"]
-             #36 div.name
-               #37 "Music"
-             #38 div.what
-               #39 "Folder"
-           #40 button.row [data-k="d:Pictures"]
-             #41 div.name
-               #42 "Pictures"
-             #43 div.what
-               #44 "Folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-         #17 div.what.size
-         #18 div.text
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up.hidden [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #31 "Files"
+       #8 div.part
+         #9 div.group.rows
+           #32 button.row [data-k="d:Documents"]
+             #33 div.tile [style="background: #f2b01e"]
+               #34 span.icon.fill
+                 #35 "folder"
+             #36 div.lines
+               #37 div.primary.name
+                 #38 "Documents"
+               #39 div.secondary.what
+                 #40 "Folder"
+           #41 button.row [data-k="d:Download"]
+             #42 div.tile [style="background: #f2b01e"]
+               #43 span.icon.fill
+                 #44 "folder"
+             #45 div.lines
+               #46 div.primary.name
+                 #47 "Download"
+               #48 div.secondary.what
+                 #49 "Folder"
+           #50 button.row [data-k="d:Music"]
+             #51 div.tile [style="background: #f2b01e"]
+               #52 span.icon.fill
+                 #53 "folder"
+             #54 div.lines
+               #55 div.primary.name
+                 #56 "Music"
+               #57 div.secondary.what
+                 #58 "Folder"
+           #59 button.row [data-k="d:Pictures"]
+             #60 div.tile [style="background: #f2b01e"]
+               #61 span.icon.fill
+                 #62 "folder"
+             #63 div.lines
+               #64 div.primary.name
+                 #65 "Pictures"
+               #66 div.secondary.what
+                 #67 "Folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+         #26 div.secondary.size
+         #27 div.text
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 1  (clicks fed to guest: []) ---
-   [tap] #26
-   [page] 34 nodes
+   [tap] #32
+   [page] 49 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #45 "Documents"
-       #7 div.part
-         #8 div.rows
-           #46 button.row [data-k="f:list.txt"]
-             #47 div.name
-               #48 "list.txt"
-             #49 div.what
-               #50 "20 B"
-           #51 button.row [data-k="f:readme.txt"]
-             #52 div.name
-               #53 "readme.txt"
-             #54 div.what
-               #55 "36 B"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-         #17 div.what.size
-         #18 div.text
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #68 "Documents"
+       #8 div.part
+         #9 div.group.rows
+           #69 button.row [data-k="f:list.txt"]
+             #70 div.tile [style="background: #8e5cf7"]
+               #71 span.icon.fill
+                 #72 "description"
+             #73 div.lines
+               #74 div.primary.name
+                 #75 "list.txt"
+               #76 div.secondary.what
+                 #77 "20 B"
+           #78 button.row [data-k="f:readme.txt"]
+             #79 div.tile [style="background: #8e5cf7"]
+               #80 span.icon.fill
+                 #81 "description"
+             #82 div.lines
+               #83 div.primary.name
+                 #84 "readme.txt"
+               #85 div.secondary.what
+                 #86 "36 B"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+         #26 div.secondary.size
+         #27 div.text
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 2  (clicks fed to guest: []) ---
-   [tap] #52
-   [page] 37 nodes
-   #1 body
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #56 "Documents"
-       #7 div.part.hidden
-         #8 div.rows
-           #46 button.row [data-k="f:list.txt"]
-             #47 div.name
-               #48 "list.txt"
-             #49 div.what
-               #50 "20 B"
-           #51 button.row [data-k="f:readme.txt"]
-             #52 div.name
-               #53 "readme.txt"
-             #54 div.what
-               #55 "36 B"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
-
---- frame 3  (clicks fed to guest: []) ---
-   [tap] #20
-   [page] 37 nodes
-   #1 body
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #60 "Documents"
-       #7 div.part
-         #8 div.rows
-           #61 button.row [data-k="f:list.txt"]
-             #62 div.name
-               #63 "list.txt"
-             #64 div.what
-               #65 "20 B"
-           #66 button.row [data-k="f:readme.txt"]
-             #67 div.name
-               #68 "readme.txt"
-             #69 div.what
-               #70 "36 B"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
-
---- frame 4  (clicks fed to guest: []) ---
-   [tap] #4
-   [page] 47 nodes
-   #1 body
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.up.hidden [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #71 "Files"
-       #7 div.part
-         #8 div.rows
-           #72 button.row [data-k="d:Documents"]
-             #73 div.name
-               #74 "Documents"
-             #75 div.what
-               #76 "Folder"
-           #77 button.row [data-k="d:Download"]
-             #78 div.name
-               #79 "Download"
-             #80 div.what
-               #81 "Folder"
-           #82 button.row [data-k="d:Music"]
-             #83 div.name
-               #84 "Music"
-             #85 div.what
-               #86 "Folder"
-           #87 button.row [data-k="d:Pictures"]
-             #88 div.name
-               #89 "Pictures"
-             #90 div.what
-               #91 "Folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
-
---- frame 5  (clicks fed to guest: []) ---
-   [type] #10 = "Trips"
-   [page] 47 nodes
-   #1 body
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.up.hidden [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #71 "Files"
-       #7 div.part
-         #8 div.rows
-           #72 button.row [data-k="d:Documents"]
-             #73 div.name
-               #74 "Documents"
-             #75 div.what
-               #76 "Folder"
-           #77 button.row [data-k="d:Download"]
-             #78 div.name
-               #79 "Download"
-             #80 div.what
-               #81 "Folder"
-           #82 button.row [data-k="d:Music"]
-             #83 div.name
-               #84 "Music"
-             #85 div.what
-               #86 "Folder"
-           #87 button.row [data-k="d:Pictures"]
-             #88 div.name
-               #89 "Pictures"
-             #90 div.what
-               #91 "Folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value="Trips"
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
-
---- frame 6  (clicks fed to guest: []) ---
-   [tap] #11
+   [tap] #78
    [page] 52 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up.hidden [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #92 "Files"
-       #7 div.part
-         #8 div.rows
-           #93 button.row [data-k="d:Documents"]
-             #94 div.name
-               #95 "Documents"
-             #96 div.what
-               #97 "Folder"
-           #98 button.row [data-k="d:Download"]
-             #99 div.name
-               #100 "Download"
-             #101 div.what
-               #102 "Folder"
-           #103 button.row [data-k="d:Music"]
-             #104 div.name
-               #105 "Music"
-             #106 div.what
-               #107 "Folder"
-           #108 button.row [data-k="d:Pictures"]
-             #109 div.name
-               #110 "Pictures"
-             #111 div.what
-               #112 "Folder"
-           #113 button.row [data-k="d:Trips"]
-             #114 div.name
-               #115 "Trips"
-             #116 div.what
-               #117 "Folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #87 "Documents"
+       #8 div.part.hidden
+         #9 div.group.rows
+           #69 button.row [data-k="f:list.txt"]
+             #70 div.tile [style="background: #8e5cf7"]
+               #71 span.icon.fill
+                 #72 "description"
+             #73 div.lines
+               #74 div.primary.name
+                 #75 "list.txt"
+               #76 div.secondary.what
+                 #77 "20 B"
+           #78 button.row [data-k="f:readme.txt"]
+             #79 div.tile [style="background: #8e5cf7"]
+               #80 span.icon.fill
+                 #81 "description"
+             #82 div.lines
+               #83 div.primary.name
+                 #84 "readme.txt"
+               #85 div.secondary.what
+                 #86 "36 B"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
+
+--- frame 3  (clicks fed to guest: []) ---
+   [tap] #22
+   [page] 52 nodes
+   #1 body
+     #2 div.app {click input}
+       #3 div.head
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #91 "Documents"
+       #8 div.part
+         #9 div.group.rows
+           #92 button.row [data-k="f:list.txt"]
+             #93 div.tile [style="background: #8e5cf7"]
+               #94 span.icon.fill
+                 #95 "description"
+             #96 div.lines
+               #97 div.primary.name
+                 #98 "list.txt"
+               #99 div.secondary.what
+                 #100 "20 B"
+           #101 button.row [data-k="f:readme.txt"]
+             #102 div.tile [style="background: #8e5cf7"]
+               #103 span.icon.fill
+                 #104 "description"
+             #105 div.lines
+               #106 div.primary.name
+                 #107 "readme.txt"
+               #108 div.secondary.what
+                 #109 "36 B"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
+
+--- frame 4  (clicks fed to guest: []) ---
+   [tap] #4
+   [page] 70 nodes
+   #1 body
+     #2 div.app {click input}
+       #3 div.head
+         #4 button.iconbtn.up.hidden [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #110 "Files"
+       #8 div.part
+         #9 div.group.rows
+           #111 button.row [data-k="d:Documents"]
+             #112 div.tile [style="background: #f2b01e"]
+               #113 span.icon.fill
+                 #114 "folder"
+             #115 div.lines
+               #116 div.primary.name
+                 #117 "Documents"
+               #118 div.secondary.what
+                 #119 "Folder"
+           #120 button.row [data-k="d:Download"]
+             #121 div.tile [style="background: #f2b01e"]
+               #122 span.icon.fill
+                 #123 "folder"
+             #124 div.lines
+               #125 div.primary.name
+                 #126 "Download"
+               #127 div.secondary.what
+                 #128 "Folder"
+           #129 button.row [data-k="d:Music"]
+             #130 div.tile [style="background: #f2b01e"]
+               #131 span.icon.fill
+                 #132 "folder"
+             #133 div.lines
+               #134 div.primary.name
+                 #135 "Music"
+               #136 div.secondary.what
+                 #137 "Folder"
+           #138 button.row [data-k="d:Pictures"]
+             #139 div.tile [style="background: #f2b01e"]
+               #140 span.icon.fill
+                 #141 "folder"
+             #142 div.lines
+               #143 div.primary.name
+                 #144 "Pictures"
+               #145 div.secondary.what
+                 #146 "Folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
+
+--- frame 5  (clicks fed to guest: []) ---
+   [type] #15 = "Trips"
+   [page] 70 nodes
+   #1 body
+     #2 div.app {click input}
+       #3 div.head
+         #4 button.iconbtn.up.hidden [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #110 "Files"
+       #8 div.part
+         #9 div.group.rows
+           #111 button.row [data-k="d:Documents"]
+             #112 div.tile [style="background: #f2b01e"]
+               #113 span.icon.fill
+                 #114 "folder"
+             #115 div.lines
+               #116 div.primary.name
+                 #117 "Documents"
+               #118 div.secondary.what
+                 #119 "Folder"
+           #120 button.row [data-k="d:Download"]
+             #121 div.tile [style="background: #f2b01e"]
+               #122 span.icon.fill
+                 #123 "folder"
+             #124 div.lines
+               #125 div.primary.name
+                 #126 "Download"
+               #127 div.secondary.what
+                 #128 "Folder"
+           #129 button.row [data-k="d:Music"]
+             #130 div.tile [style="background: #f2b01e"]
+               #131 span.icon.fill
+                 #132 "folder"
+             #133 div.lines
+               #134 div.primary.name
+                 #135 "Music"
+               #136 div.secondary.what
+                 #137 "Folder"
+           #138 button.row [data-k="d:Pictures"]
+             #139 div.tile [style="background: #f2b01e"]
+               #140 span.icon.fill
+                 #141 "folder"
+             #142 div.lines
+               #143 div.primary.name
+                 #144 "Pictures"
+               #145 div.secondary.what
+                 #146 "Folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value="Trips"
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
+
+--- frame 6  (clicks fed to guest: []) ---
+   [tap] #16
+   [page] 79 nodes
+   #1 body
+     #2 div.app {click input}
+       #3 div.head
+         #4 button.iconbtn.up.hidden [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #147 "Files"
+       #8 div.part
+         #9 div.group.rows
+           #148 button.row [data-k="d:Documents"]
+             #149 div.tile [style="background: #f2b01e"]
+               #150 span.icon.fill
+                 #151 "folder"
+             #152 div.lines
+               #153 div.primary.name
+                 #154 "Documents"
+               #155 div.secondary.what
+                 #156 "Folder"
+           #157 button.row [data-k="d:Download"]
+             #158 div.tile [style="background: #f2b01e"]
+               #159 span.icon.fill
+                 #160 "folder"
+             #161 div.lines
+               #162 div.primary.name
+                 #163 "Download"
+               #164 div.secondary.what
+                 #165 "Folder"
+           #166 button.row [data-k="d:Music"]
+             #167 div.tile [style="background: #f2b01e"]
+               #168 span.icon.fill
+                 #169 "folder"
+             #170 div.lines
+               #171 div.primary.name
+                 #172 "Music"
+               #173 div.secondary.what
+                 #174 "Folder"
+           #175 button.row [data-k="d:Pictures"]
+             #176 div.tile [style="background: #f2b01e"]
+               #177 span.icon.fill
+                 #178 "folder"
+             #179 div.lines
+               #180 div.primary.name
+                 #181 "Pictures"
+               #182 div.secondary.what
+                 #183 "Folder"
+           #184 button.row [data-k="d:Trips"]
+             #185 div.tile [style="background: #f2b01e"]
+               #186 span.icon.fill
+                 #187 "folder"
+             #188 div.lines
+               #189 div.primary.name
+                 #190 "Trips"
+               #191 div.secondary.what
+                 #192 "Folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 7  (clicks fed to guest: []) ---
-   [tap] #114
-   [page] 29 nodes
+   [tap] #184
+   [page] 36 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #118 "Trips"
-       #7 div.part
-         #8 div.rows
-           #119 div.none
-             #120 "Empty folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #193 "Trips"
+       #8 div.part
+         #9 div.group.rows
+           #194 div.none
+             #195 "Empty folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 8  (clicks fed to guest: []) ---
-   [tap] #13
-   [page] 47 nodes
+   [tap] #18
+   [page] 70 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up.hidden [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #121 "Files"
-       #7 div.part
-         #8 div.rows
-           #122 button.row [data-k="d:Documents"]
-             #123 div.name
-               #124 "Documents"
-             #125 div.what
-               #126 "Folder"
-           #127 button.row [data-k="d:Download"]
-             #128 div.name
-               #129 "Download"
-             #130 div.what
-               #131 "Folder"
-           #132 button.row [data-k="d:Music"]
-             #133 div.name
-               #134 "Music"
-             #135 div.what
-               #136 "Folder"
-           #137 button.row [data-k="d:Pictures"]
-             #138 div.name
-               #139 "Pictures"
-             #140 div.what
-               #141 "Folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up.hidden [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #196 "Files"
+       #8 div.part
+         #9 div.group.rows
+           #197 button.row [data-k="d:Documents"]
+             #198 div.tile [style="background: #f2b01e"]
+               #199 span.icon.fill
+                 #200 "folder"
+             #201 div.lines
+               #202 div.primary.name
+                 #203 "Documents"
+               #204 div.secondary.what
+                 #205 "Folder"
+           #206 button.row [data-k="d:Download"]
+             #207 div.tile [style="background: #f2b01e"]
+               #208 span.icon.fill
+                 #209 "folder"
+             #210 div.lines
+               #211 div.primary.name
+                 #212 "Download"
+               #213 div.secondary.what
+                 #214 "Folder"
+           #215 button.row [data-k="d:Music"]
+             #216 div.tile [style="background: #f2b01e"]
+               #217 span.icon.fill
+                 #218 "folder"
+             #219 div.lines
+               #220 div.primary.name
+                 #221 "Music"
+               #222 div.secondary.what
+                 #223 "Folder"
+           #224 button.row [data-k="d:Pictures"]
+             #225 div.tile [style="background: #f2b01e"]
+               #226 span.icon.fill
+                 #227 "folder"
+             #228 div.lines
+               #229 div.primary.name
+                 #230 "Pictures"
+               #231 div.secondary.what
+                 #232 "Folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 9  (clicks fed to guest: []) ---
-   [tap] #138
-   [page] 32 nodes
+   [tap] #224
+   [page] 43 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #142 "Pictures"
-       #7 div.part
-         #8 div.rows
-           #143 button.row [data-k="f:sky.png"]
-             #144 div.name
-               #145 "sky.png"
-             #146 div.what
-               #147 "107 B"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #57 "readme.txt"
-         #17 div.what.size
-           #58 "36 B"
-         #18 div.text
-           #59 "Arche phone\nShared files, in Arche.\n"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #233 "Pictures"
+       #8 div.part
+         #9 div.group.rows
+           #234 button.row [data-k="f:sky.png"]
+             #235 div.tile [style="background: #2f80ed"]
+               #236 span.icon.fill
+                 #237 "image"
+             #238 div.lines
+               #239 div.primary.name
+                 #240 "sky.png"
+               #241 div.secondary.what
+                 #242 "107 B"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #88 "readme.txt"
+         #26 div.secondary.size
+           #89 "36 B"
+         #27 div.text
+           #90 "Arche phone\nShared files, in Arche.\n"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 10  (clicks fed to guest: []) ---
-   [tap] #144
-   [page] 32 nodes
+   [tap] #234
+   [page] 43 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #148 "Pictures"
-       #7 div.part.hidden
-         #8 div.rows
-           #143 button.row [data-k="f:sky.png"]
-             #144 div.name
-               #145 "sky.png"
-             #146 div.what
-               #147 "107 B"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop.hidden [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view
-         #16 div.title
-           #149 "sky.png"
-         #17 div.what.size
-           #150 "107 B"
-         #18 div.text
-           #151 "No preview"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #243 "Pictures"
+       #8 div.part.hidden
+         #9 div.group.rows
+           #234 button.row [data-k="f:sky.png"]
+             #235 div.tile [style="background: #2f80ed"]
+               #236 span.icon.fill
+                 #237 "image"
+             #238 div.lines
+               #239 div.primary.name
+                 #240 "sky.png"
+               #241 div.secondary.what
+                 #242 "107 B"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop.hidden [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #244 "sky.png"
+         #26 div.secondary.size
+           #245 "107 B"
+         #27 div.text
+           #246 "No preview"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 11  (clicks fed to guest: []) ---
-   [tap] #22
-   [page] 29 nodes
+   [tap] #29
+   [page] 36 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #152 "Pictures"
-       #7 div.part
-         #8 div.rows
-           #153 div.none
-             #154 "Empty folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #149 "sky.png"
-         #17 div.what.size
-           #150 "107 B"
-         #18 div.text
-           #151 "No preview"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #247 "Pictures"
+       #8 div.part
+         #9 div.group.rows
+           #248 div.none
+             #249 "Empty folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #244 "sky.png"
+         #26 div.secondary.size
+           #245 "107 B"
+         #27 div.text
+           #246 "No preview"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"
 
 --- frame 12  (clicks fed to guest: []) ---
-   [page] 29 nodes
+   [page] 36 nodes
    #1 body
      #2 div.app {click input}
        #3 div.head
-         #4 button.up [data-k="up"]
-           #5 "‹"
-         #6 div.where
-           #152 "Pictures"
-       #7 div.part
-         #8 div.rows
-           #153 div.none
-             #154 "Empty folder"
-         #9 div.new
-           #10 input.field [placeholder="New folder"] value=""
-           #11 button.go [data-k="make"]
-             #12 "Make"
-         #13 button.drop [data-k="drop"]
-           #14 "Delete folder"
-       #15 div.view.hidden
-         #16 div.title
-           #149 "sky.png"
-         #17 div.what.size
-           #150 "107 B"
-         #18 div.text
-           #151 "No preview"
-         #19 div.bar
-           #20 button [data-k="close"]
-             #21 "Back"
-           #22 button [data-k="delete"]
-             #23 "Delete"
+         #4 button.iconbtn.up [data-k="up"]
+           #5 span.icon
+             #6 "arrow_back"
+         #7 div.where
+           #247 "Pictures"
+       #8 div.part
+         #9 div.group.rows
+           #248 div.none
+             #249 "Empty folder"
+         #10 div.group
+           #11 div.row.new
+             #12 div.tile [style="background: #f2b01e"]
+               #13 span.icon.fill
+                 #14 "create_new_folder"
+             #15 input.field [placeholder="New folder"] value=""
+             #16 button.btn.primary.make [data-k="make"]
+               #17 "Make"
+         #18 button.btn.danger.drop [data-k="drop"]
+           #19 "Delete folder"
+       #20 div.view.hidden
+         #21 div.head
+           #22 button.iconbtn [data-k="close"]
+             #23 span.icon
+               #24 "arrow_back"
+         #25 div.title
+           #244 "sky.png"
+         #26 div.secondary.size
+           #245 "107 B"
+         #27 div.text
+           #246 "No preview"
+         #28 div.bar
+           #29 button.btn.danger [data-k="delete"]
+             #30 "Delete"

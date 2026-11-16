@@ -10,13 +10,14 @@
 /// An app of the phone's world (arche:phone, wit/): it reads and changes
 /// the shared files through files (its manifest's needs: files).
 import alloc;
+import appkit;
 import core.utf8;
 import dom;
 import files;
 import host_api;
 import std;
 
-const SHEET: str = "body { padding: 0; } .app { display: flex; flex-direction: column; gap: 12px; padding: 16px; } .head { display: flex; flex-direction: row; align-items: center; gap: 12px; } .where { font-size: 26px; color: var(--nimadir-text); flex: 1; } .rows { display: flex; flex-direction: column; gap: 8px; } button.row { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 14px 16px; border-radius: 16px; background: var(--nimadir-surface); } .name { font-size: 17px; color: var(--nimadir-text); } .what { font-size: 14px; color: var(--nimadir-muted); } .none { font-size: 15px; color: var(--nimadir-muted); } .view { display: flex; flex-direction: column; gap: 10px; } .title { font-size: 22px; color: var(--nimadir-text); } .text { font-size: 15px; color: var(--nimadir-text); padding: 12px; border-radius: 12px; background: var(--nimadir-surface); } .bar, .new { display: flex; flex-direction: row; align-items: center; gap: 12px; } button { padding: 12px 20px; border-radius: 24px; font-size: 16px; border: 0; background: var(--nimadir-accent-wash); color: var(--nimadir-text); } button.go { background: var(--nimadir-accent); color: var(--nimadir-bg); } input { flex: 1; padding: 12px; border-radius: 12px; border: 0; font-size: 16px; background: var(--nimadir-surface); color: var(--nimadir-text); } .hidden { display: none; }";
+const SHEET: str = ".app { padding-bottom: 16px; } .head { justify-content: flex-start; gap: 4px; padding-left: 8px; } .up.hidden { display: none; } .where { font-size: 28px; color: var(--kit-text); padding: 0 8px; } .part { display: flex; flex-direction: column; padding-top: 8px; } .new { gap: 10px; } .new input { flex-grow: 1; } .make { padding: 9px 18px; font-size: 15px; } .drop { margin: 0 14px; } .view { display: flex; flex-direction: column; gap: 10px; padding: 8px 0 0; } .title { font-size: 22px; color: var(--kit-text); padding: 0 20px; } .size { padding: 0 20px; } .text { font-size: 15px; color: var(--kit-text); margin: 0 14px; padding: 14px; border-radius: 18px; background: var(--kit-card); } .bar { display: flex; flex-direction: row; justify-content: center; padding-top: 8px; } .hidden { display: none; }";
 
 /// How much of a text file is shown.
 const SHOWN: usize = 4000;
@@ -41,9 +42,11 @@ type Files = struct {
 }
 
 fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
+    let kit = appkit.css(a);
+    _ = dom.add_stylesheet(host, css: kit.view());
     _ = dom.add_stylesheet(host, css: SHEET);
     let root = dom.root(host);
-    let markup = "<div class='app'><div class='head'><button class='up' data-k='up'>‹</button><div class='where'></div></div><div class='part'><div class='rows'></div><div class='new'><input class='field' placeholder='New folder'><button class='go' data-k='make'>Make</button></div><button class='drop' data-k='drop'>Delete folder</button></div><div class='view hidden'><div class='title'></div><div class='what size'></div><div class='text'></div><div class='bar'><button data-k='close'>Back</button><button data-k='delete'>Delete</button></div></div></div>";
+    let markup = "<div class='app'><div class='head'><button class='iconbtn up' data-k='up'><span class='icon'>arrow_back</span></button><div class='where'></div></div><div class='part'><div class='group rows'></div><div class='group'><div class='row new'><div class='tile' style='background: #f2b01e'><span class='icon fill'>create_new_folder</span></div><input class='field' placeholder='New folder'><button class='btn primary make' data-k='make'>Make</button></div></div><button class='btn danger drop' data-k='drop'>Delete folder</button></div><div class='view hidden'><div class='head'><button class='iconbtn' data-k='close'><span class='icon'>arrow_back</span></button></div><div class='title'></div><div class='secondary size'></div><div class='text'></div><div class='bar'><button class='btn danger' data-k='delete'>Delete</button></div></div></div>";
     var why = alloc.String.init(a);
     if not dom.set_markup(host, item: root, markup: markup, why: &mut why, a: a) {
         host_api.log(host, msg: why.view());
@@ -214,13 +217,98 @@ fn show(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
             }
             k.push_str(e.name.view());
             dom.set_attribute(host, item: row, name: "data-k", value_: k.view());
-            line(host, parent_: row, class: "name", text: e.name.view(), a: a);
-            line(host, parent_: row, class: "what", text: what.view(), a: a);
+            // Its icon on a tile of its kind's color, its name over what
+            // it is, and a chevron.
+            let tile = dom.create_element(host, tag: "div");
+            dom.set_attribute(host, item: tile, name: "class", value_: "tile");
+            var style = alloc.String.from("background: ", a);
+            style.push_str(tint_of(e.name.view(), folder: e.folder));
+            dom.set_attribute(host, item: tile, name: "style", value_: style.view());
+            let glyph = dom.create_element(host, tag: "span");
+            dom.set_attribute(host, item: glyph, name: "class", value_: "icon fill");
+            dom.set_text(host, item: glyph, text: icon_of(e.name.view(), folder: e.folder));
+            dom.append_child(host, parent_: tile, child: glyph);
+            dom.append_child(host, parent_: row, child: tile);
+            let lines = dom.create_element(host, tag: "div");
+            dom.set_attribute(host, item: lines, name: "class", value_: "lines");
+            line(host, parent_: lines, class: "primary name", text: e.name.view(), a: a);
+            line(host, parent_: lines, class: "secondary what", text: what.view(), a: a);
+            dom.append_child(host, parent_: row, child: lines);
             dom.append_child(host, parent_: state.rows, child: row);
         }
     }
     // An empty folder, not one of the top's, can be deleted.
     dom.toggle_class(host, item: state.remove_folder, name: "hidden", on: state.path.len() == 0 or all.len() > 0);
+}
+
+/// Whether name ends with one of tails, given as ".a.b.c", its case aside.
+fn kind_is(name: str, tails: str) -> bool {
+    var from: usize = 0;
+    var at: usize = 1;
+    while at <= tails.len() : (at += 1) {
+        if at == tails.len() or tails.bytes()[at] == '.' {
+            let tail = tails[from..at];
+            if name.len() >= tail.len() {
+                var same = true;
+                var i: usize = 0;
+                while i < tail.len() : (i += 1) {
+                    var c = name.bytes()[name.len() - tail.len() + i];
+                    if c >= 'A' and c <= 'Z' {
+                        c += 32;
+                    }
+                    if c != tail.bytes()[i] {
+                        same = false;
+                    }
+                }
+                if same {
+                    return true;
+                }
+            }
+            from = at;
+        }
+    }
+    return false;
+}
+
+/// A row's icon, by what it is: a folder, a picture, a video, a song, a
+/// text, or another file.
+fn icon_of(name: str, folder: bool) -> str {
+    if folder {
+        return "folder";
+    }
+    if kind_is(name: name, tails: ".png.jpg.jpeg.gif.webp") {
+        return "image";
+    }
+    if kind_is(name: name, tails: ".avi.mp4.mkv.webm") {
+        return "movie";
+    }
+    if kind_is(name: name, tails: ".wav.mp3.ogg.flac") {
+        return "audio_file";
+    }
+    if kind_is(name: name, tails: ".txt.md.csv.json") {
+        return "description";
+    }
+    return "draft";
+}
+
+/// The color of a row's tile, by what it is, as icon_of.
+fn tint_of(name: str, folder: bool) -> str {
+    if folder {
+        return "#f2b01e";
+    }
+    if kind_is(name: name, tails: ".png.jpg.jpeg.gif.webp") {
+        return "#2f80ed";
+    }
+    if kind_is(name: name, tails: ".avi.mp4.mkv.webm") {
+        return "#eb5757";
+    }
+    if kind_is(name: name, tails: ".wav.mp3.ogg.flac") {
+        return "#f0476a";
+    }
+    if kind_is(name: name, tails: ".txt.md.csv.json") {
+        return "#8e5cf7";
+    }
+    return "#8a8a8e";
 }
 
 /// The file shown: its name, size and, when it is text, the text.
