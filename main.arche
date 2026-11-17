@@ -2,8 +2,8 @@
 /// the phone's shared files (Pictures, Music, Documents, Download), a
 /// folder at a time, its folders first, then its files with their sizes.
 /// A tap on a folder opens it, and ‹ goes up; a tap on a file shows it,
-/// its name, its size and, when it is text, the text, with Back and
-/// Delete. A new folder is its name typed and Make; an empty folder can be
+/// its name, its size and, when it is text, the text, with Delete, and ‹
+/// goes back to its folder. A new folder is its name typed and Make; an empty folder can be
 /// deleted from inside it. An app of the page: its taps come as click
 /// events and its typing as input events.
 ///
@@ -46,7 +46,7 @@ fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
     _ = dom.add_stylesheet(host, css: kit.view());
     _ = dom.add_stylesheet(host, css: SHEET);
     let root = dom.root(host);
-    let markup = "<div class='app'><div class='head'><button class='iconbtn up' data-k='up'><span class='icon'>arrow_back</span></button><div class='where'></div></div><div class='part'><div class='group rows'></div><div class='group'><div class='row new'><div class='tile' style='background: #f2b01e'><span class='icon fill'>create_new_folder</span></div><input class='field' placeholder='New folder'><button class='btn primary make' data-k='make'>Make</button></div></div><button class='btn danger drop' data-k='drop'>Delete folder</button></div><div class='view hidden'><div class='head'><button class='iconbtn' data-k='close'><span class='icon'>arrow_back</span></button></div><div class='title'></div><div class='secondary size'></div><div class='text'></div><div class='bar'><button class='btn danger' data-k='delete'>Delete</button></div></div></div>";
+    let markup = "<div class='app'><div class='head'><button class='iconbtn up' data-k='up'><span class='icon'>arrow_back</span></button><div class='where'></div></div><div class='part'><div class='group rows'></div><div class='group'><div class='row new'><div class='tile' style='background: #f2b01e'><span class='icon fill'>create_new_folder</span></div><input class='field' placeholder='New folder'><button class='btn primary make' data-k='make'>Make</button></div></div><button class='btn danger drop' data-k='drop'>Delete folder</button></div><div class='view hidden'><div class='title'></div><div class='secondary size'></div><div class='text'></div><div class='bar'><button class='btn danger' data-k='delete'>Delete</button></div></div></div>";
     var why = alloc.String.init(a);
     if not dom.set_markup(host, item: root, markup: markup, why: &mut why, a: a) {
         host_api.log(host, msg: why.view());
@@ -105,7 +105,10 @@ fn joined(path: str, name: str, a: alloc.Allocator) -> alloc.String {
 }
 
 fn press(state: &mut Files, host: &mut std.Host, key: str, a: alloc.Allocator) {
-    if key.eq("up") {
+    if key.eq("up") and state.file.len() > 0 {
+        // Back from a file: its folder, as it was.
+        state.file = alloc.String.init(a);
+    } else if key.eq("up") {
         // Up: the folder this one is in.
         let b = state.path.view().bytes();
         var cut = b.len();
@@ -121,8 +124,6 @@ fn press(state: &mut Files, host: &mut std.Host, key: str, a: alloc.Allocator) {
         state.path = joined(path: state.path.view(), name: key[2..key.len()], a: a);
     } else if key.starts_with("f:") {
         state.file = alloc.String.from(key[2..key.len()], a);
-    } else if key.eq("close") {
-        state.file = alloc.String.init(a);
     } else if key.eq("delete") {
         let p = joined(path: state.path.view(), name: state.file.view(), a: a);
         _ = files.remove(host, path: p.view());
@@ -182,7 +183,8 @@ fn show(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     } else {
         dom.set_text(host, item: state.place, text: state.path.view());
     }
-    dom.toggle_class(host, item: state.up, name: "hidden", on: state.path.len() == 0);
+    // ‹, the one back: from a file to its folder, from a folder up.
+    dom.toggle_class(host, item: state.up, name: "hidden", on: state.path.len() == 0 and state.file.len() == 0);
     if state.file.len() > 0 {
         show_file(state, host: host, a: a);
         return;
