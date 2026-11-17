@@ -53,6 +53,7 @@ fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
     }
     let app = first(host, selector: ".app", a: a);
     dom.listen(host, item: app, kind: "click");
+    dom.listen(host, item: dom.root(host), kind: "back");
     dom.listen(host, item: app, kind: "input");
     var state = Files {
         path: alloc.String.init(a),
@@ -76,7 +77,11 @@ fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
 fn update(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     var changed = false;
     for e in dom.events(host, a: a).items() {
-        if e.kind.view().eq("click") {
+        if e.kind.view().eq("back") {
+            // The phone's Back, in a folder or a file: the one back.
+            press(state, host: host, key: "up", a: a);
+            changed = true;
+        } else if e.kind.view().eq("click") {
             match key_of(host, n: e.target, a: a) {
                 some(k) => {
                     press(state, host: host, key: k.view(), a: a);
@@ -183,8 +188,15 @@ fn show(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     } else {
         dom.set_text(host, item: state.place, text: state.path.view());
     }
-    // ‹, the one back: from a file to its folder, from a folder up.
-    dom.toggle_class(host, item: state.up, name: "hidden", on: state.path.len() == 0 and state.file.len() == 0);
+    // ‹, the one back: from a file to its folder, from a folder up; the
+    // phone's Back the same (data-back).
+    let top = state.path.len() == 0 and state.file.len() == 0;
+    dom.toggle_class(host, item: state.up, name: "hidden", on: top);
+    if top {
+        dom.remove_attribute(host, item: dom.root(host), name: "data-back");
+    } else {
+        dom.set_attribute(host, item: dom.root(host), name: "data-back", value_: "1");
+    }
     if state.file.len() > 0 {
         show_file(state, host: host, a: a);
         return;
