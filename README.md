@@ -2,13 +2,15 @@
 
 The Arche phone's files app, written in [Arche](https://github.com/arche-family/arche-lang): a WebAssembly component of the Arche phone's world, which the phone has from its first start. That world is Nimadir's mini-app world and what a phone adds to it, here the phone's shared files; its WIT is in `wit/` (from arche-os's `phone/wit`), and `world` names it. Nimadir's own shell, which has none of it, does not run it.
 
-It works like a phone's file manager (HyperOS's), two pages with tabs along the bottom:
+It works like a phone's file manager (HyperOS's), two pages with tabs along the bottom, a swipe sideways going from one to the other:
 
 - Recent: the shared files, the newest first, under the day each was made (a camera's names say when), four across: each one's thumbnail or its kind's icon, its name, its size and its folder.
 - Browse: the kinds (Docs, Images, Videos, Music), each opening its folder, and the folders of the phone's storage with how many items each has; + makes a folder, its name typed in a sheet.
 - A folder shows where it is (Internal storage › Pictures), its folders first, then its files, a picture's thumbnail by its name; an empty folder, not one at the top, can be deleted.
-- A file opens: a picture fitted to the screen, a text's text, a song with Play (the phone world's `audio`); each with its size and Delete.
+- A file opens: a picture fitted to the screen, a text's text with its lines, a song with Play (the phone world's `audio`); each with its size and Delete.
 - The phone's Back, and the arrow at the top, go back one.
+
+It shows in the phone's language, English, Uzbek or Russian, as the phone's `locale` says (`en-US`, `uz-UZ`, `ru-RU`): its words, the days and the counts of items, and the names of the five shared folders (Documents, Download, Movies, Music, Pictures: Hujjatlar, Yuklanmalar, Videolar, Musiqa, Rasmlar in Uzbek), only as they are shown, never in their paths. It makes its page again when the language changes.
 
 The phone decodes the pictures (`files.image`) and keeps their thumbnails, the gallery's size, so that one kept serves both.
 

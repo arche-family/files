@@ -1,6 +1,10 @@
 name: files
 version: 1
 title: Files
-about: The phone's shared files, folder by folder, in Arche
+about: Browse and manage the files on your phone
+title.uz: Fayllar
+about.uz: Telefondagi fayllarni koʻrish va boshqarish
+title.ru: Файлы
+about.ru: Просмотр файлов на телефоне и управление ими
 publisher: arche
 needs: files

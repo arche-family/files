@@ -11,7 +11,10 @@
 /// picture fitted to the screen, a text's text, a song with Play; each
 /// with its size and Delete. The phone's Back, and the arrow at the top,
 /// go back one. An app of the page: its taps come as click events and its
-/// typing as input events.
+/// typing as input events. It speaks the phone's language: English, Uzbek
+/// or Russian (host_api's locale), the five shared folders' names too in
+/// what it shows, never in their paths; and makes its page again when that
+/// changes.
 ///
 /// An app of the phone's world (arche:phone, wit/): it reads and changes
 /// the shared files through files (its manifest's needs: files), and plays
@@ -25,7 +28,7 @@ import files;
 import host_api;
 import std;
 
-const SHEET: str = ".count { font-size: 14px; color: var(--kit-muted); } .daybar { display: flex; flex-direction: row; gap: 10px; align-items: center; padding: 14px 24px 8px; font-size: 14px; color: var(--kit-accent); } .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px 6px; padding: 0 12px 8px; } button.item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0; border: 0; border-radius: 12px; background: transparent; color: var(--kit-text); min-width: 0; font-weight: 400; } .thumb { width: 64px; height: 64px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #ffffff; background: var(--kit-line); } .thumb img { width: 64px; height: 64px; object-fit: cover; } .thumb .icon { font-size: 30px; } .iname { font-size: 13px; text-align: center; color: var(--kit-text); max-width: 82px; overflow: hidden; height: 34px; line-height: 17px; } .isize { font-size: 11px; color: var(--kit-muted); } .ifrom { font-size: 11px; color: var(--kit-muted); max-width: 82px; overflow: hidden; height: 14px; } .section { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 14px 16px 8px 32px; font-size: 14px; color: var(--kit-muted); } .section .iconbtn { color: var(--kit-muted); } .kinds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 16px 4px; } button.kind { display: flex; flex-direction: row; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 0; border-radius: 16px; background: var(--kit-card); color: var(--kit-text); font-size: 16px; font-weight: 400; } .ksq { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #ffffff; } .ksq .icon { font-size: 20px; } button.frow { display: flex; flex-direction: row; align-items: center; gap: 14px; width: 100%; box-sizing: border-box; padding: 10px 16px 10px 20px; border: 0; border-radius: 0; background: transparent; text-align: left; color: var(--kit-text); font-weight: 400; } .fold { color: #f5b82e; font-size: 44px; flex-shrink: 0; } .fthumb { width: 44px; height: 44px; border-radius: 8px; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #ffffff; } .fthumb img { width: 44px; height: 44px; object-fit: cover; } .fthumb .icon { font-size: 24px; } .frow .lines { gap: 3px; } .frow .primary { font-size: 16px; } .crumbs { display: flex; flex-direction: row; align-items: center; gap: 6px; padding: 0 16px 10px; } .crumb { padding: 6px 12px; border-radius: 14px; font-size: 13px; background: var(--kit-line); color: var(--kit-muted); } .crumb.at { background: #fdeccb; color: #c88a12; } .crumbs .icon { font-size: 18px; color: var(--kit-muted); } .head .title { flex-grow: 1; font-size: 20px; font-weight: 500; } .drop { margin: 16px; align-self: flex-start; } .view { display: flex; flex-direction: column; min-height: 100vh; } .vbody { display: flex; flex-direction: column; gap: 12px; padding: 0 0 16px; } .vname { font-size: 20px; color: var(--kit-text); padding: 0 24px; } .vsize { font-size: 14px; color: var(--kit-muted); padding: 0 24px; margin-top: -6px; } img.whole { width: 100%; } .text { font-size: 15px; color: var(--kit-text); margin: 0 16px; padding: 14px; border-radius: 18px; background: var(--kit-card); } .vtools { display: flex; flex-direction: row; gap: 10px; padding: 4px 16px; } .sheet { position: fixed; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 14px; padding: 22px 20px 20px; border-radius: 26px 26px 0 0; background: var(--kit-card); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.16); } .sheet .stitle { font-size: 18px; font-weight: 500; color: var(--kit-text); } .sheet input { height: 48px; border-radius: 14px; border: 0; padding: 0 14px; background: var(--kit-ground); font-size: 16px; color: var(--kit-text); } .sheet .buttons { display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; } .scrim { position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0, 0, 0, 0.32); } .hidden { display: none; }";
+const SHEET: str = ".count { font-size: 14px; color: var(--kit-muted); } .daybar { display: flex; flex-direction: row; gap: 10px; align-items: center; padding: 14px 24px 8px; font-size: 14px; color: var(--kit-accent); } .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px 6px; padding: 0 12px 8px; } button.item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0; border: 0; border-radius: 12px; background: transparent; color: var(--kit-text); min-width: 0; font-weight: 400; } .thumb { width: 64px; height: 64px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #ffffff; background: var(--kit-line); } .thumb img { width: 64px; height: 64px; object-fit: cover; } .thumb .icon { font-size: 30px; } .iname { font-size: 13px; text-align: center; color: var(--kit-text); max-width: 82px; overflow: hidden; height: 34px; line-height: 17px; } .isize { font-size: 11px; color: var(--kit-muted); } .ifrom { font-size: 11px; color: var(--kit-muted); max-width: 82px; overflow: hidden; height: 14px; } .section { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 14px 16px 8px 32px; font-size: 14px; color: var(--kit-muted); } .section .iconbtn { color: var(--kit-muted); } .kinds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 16px 4px; } button.kind { display: flex; flex-direction: row; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 0; border-radius: 16px; background: var(--kit-card); color: var(--kit-text); font-size: 16px; font-weight: 400; } .ksq { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #ffffff; } .ksq .icon { font-size: 20px; } button.frow { display: flex; flex-direction: row; align-items: center; gap: 14px; width: 100%; box-sizing: border-box; padding: 10px 16px 10px 20px; border: 0; border-radius: 0; background: transparent; text-align: left; color: var(--kit-text); font-weight: 400; } .fold { color: #f5b82e; font-size: 44px; flex-shrink: 0; } .fthumb { width: 44px; height: 44px; border-radius: 8px; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #ffffff; } .fthumb img { width: 44px; height: 44px; object-fit: cover; } .fthumb .icon { font-size: 24px; } .frow .lines { gap: 3px; } .frow .primary { font-size: 16px; } .crumbs { display: flex; flex-direction: row; align-items: center; gap: 6px; padding: 0 16px 10px; } .crumb { padding: 6px 12px; border-radius: 14px; font-size: 13px; background: var(--kit-line); color: var(--kit-muted); } .crumb.at { background: #fdeccb; color: #c88a12; } .crumbs .icon { font-size: 18px; color: var(--kit-muted); } .head .title { flex-grow: 1; font-size: 20px; font-weight: 500; } .drop { margin: 16px; align-self: flex-start; } .view { display: flex; flex-direction: column; min-height: 100vh; } .vbody { display: flex; flex-direction: column; gap: 12px; padding: 0 0 16px; } .vname { font-size: 20px; color: var(--kit-text); padding: 0 24px; } .vsize { font-size: 14px; color: var(--kit-muted); padding: 0 24px; margin-top: -6px; } img.whole { width: 100%; height: 60vh; object-fit: contain; } .text { font-size: 15px; color: var(--kit-text); margin: 0 16px; padding: 14px; border-radius: 18px; background: var(--kit-card); white-space: pre-wrap; } .vtools { display: flex; flex-direction: row; gap: 10px; padding: 4px 16px; } .sheet { position: fixed; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 14px; padding: 22px 20px 20px; border-radius: 26px 26px 0 0; background: var(--kit-card); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.16); } .sheet .stitle { font-size: 18px; font-weight: 500; color: var(--kit-text); } .sheet input { height: 48px; border-radius: 14px; border: 0; padding: 0 14px; background: var(--kit-ground); font-size: 16px; color: var(--kit-text); } .sheet .buttons { display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; } .scrim { position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0, 0, 0, 0.32); } .hidden { display: none; }";
 
 /// How much of a text file is shown.
 const SHOWN: usize = 4000;
@@ -45,6 +48,11 @@ const DAY_MS: i64 = 86400000;
 /// The pages: Recent and Browse, a folder, a file.
 const RECENT_PAGE: u32 = 0;
 const BROWSE: u32 = 1;
+
+/// The languages it speaks.
+const EN: u32 = 0;
+const UZ: u32 = 1;
+const RU: u32 = 2;
 
 /// A file of Recent's: its path, name, folder, size, day (NO_DAY when its
 /// name does not say) and the minute of it, and its thumbnail.
@@ -102,28 +110,61 @@ type Files = struct {
     sheet: u32,
     scrim: u32,
     field: u32,
+    /// The phone's language (EN, UZ, RU), its locale as the phone said it,
+    /// and the stylesheets' numbers, to make the page again in another.
+    lang: u32,
+    locale: alloc.String,
+    styles: [2]u32,
 }
 
 fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
     let kit = appkit.css(a);
-    _ = dom.add_stylesheet(host, css: kit.view());
-    _ = dom.add_stylesheet(host, css: SHEET);
+    let kit_sheet = dom.add_stylesheet(host, css: kit.view());
+    let own_sheet = dom.add_stylesheet(host, css: SHEET);
+    let locale = host_api.locale(host, a: a);
+    let lang = lang_of(locale.view());
     let root = dom.root(host);
     var m = alloc.String.from("<div class='app tabbed'><div class='content'>", a);
     // The tabs' pages.
-    m.push_str("<div class='tabspage'><div class='recentpart'><div class='big'>Recent</div><div class='recentlist'></div></div><div class='browsepart hidden'><div class='big'>Browse</div><div class='section'><span>Type</span></div><div class='kinds'>");
-    kind(&mut m, key: "Documents", name: "Docs", glyph: "description", color: "#f5b82e");
-    kind(&mut m, key: "Pictures", name: "Images", glyph: "image", color: "#7c6cf2");
-    kind(&mut m, key: "Movies", name: "Videos", glyph: "videocam", color: "#6e5bf0");
-    kind(&mut m, key: "Music", name: "Music", glyph: "music_note", color: "#ef4b4b");
-    m.push_str("</div><div class='section'><span>Internal storage</span><button class='iconbtn' data-k='ask'><span class='icon'>create_new_folder</span></button></div><div class='folderrows'></div></div></div>");
+    m.push_str("<div class='tabspage'><div class='recentpart'><div class='big'>");
+    m.push_str(say(lang, "Recent"));
+    m.push_str("</div><div class='recentlist'></div></div><div class='browsepart hidden'><div class='big'>");
+    m.push_str(say(lang, "Browse"));
+    m.push_str("</div><div class='section'><span>");
+    m.push_str(say(lang, "Type"));
+    m.push_str("</span></div><div class='kinds'>");
+    kind(&mut m, key: "Documents", name: say(lang, "Docs"), glyph: "description", color: "#f5b82e");
+    kind(&mut m, key: "Pictures", name: say(lang, "Images"), glyph: "image", color: "#7c6cf2");
+    kind(&mut m, key: "Movies", name: say(lang, "Videos"), glyph: "videocam", color: "#6e5bf0");
+    kind(&mut m, key: "Music", name: say(lang, "Music"), glyph: "music_note", color: "#ef4b4b");
+    m.push_str("</div><div class='section'><span>");
+    m.push_str(say(lang, "Internal storage"));
+    m.push_str("</span><button class='iconbtn' data-k='ask'><span class='icon'>create_new_folder</span></button></div><div class='folderrows'></div></div></div>");
     // A folder.
-    m.push_str("<div class='folderpart hidden'><div class='head'><button class='iconbtn' data-k='up'><span class='icon'>arrow_back</span></button><div class='title foldertitle'></div><button class='iconbtn' data-k='ask'><span class='icon'>create_new_folder</span></button></div><div class='crumbs'></div><div class='rows'></div><button class='btn danger drop' data-k='drop'>Delete folder</button></div>");
+    m.push_str("<div class='folderpart hidden'><div class='head'><button class='iconbtn' data-k='up'><span class='icon'>arrow_back</span></button><div class='title foldertitle'></div><button class='iconbtn' data-k='ask'><span class='icon'>create_new_folder</span></button></div><div class='crumbs'></div><div class='rows'></div><button class='btn danger drop' data-k='drop'>");
+    m.push_str(say(lang, "Delete folder"));
+    m.push_str("</button></div>");
     // A file.
-    m.push_str("<div class='view hidden'><div class='head'><button class='iconbtn' data-k='up'><span class='icon'>arrow_back</span></button></div><div class='vbody'><div class='vname'></div><div class='vsize'></div><img class='whole hidden'><div class='text hidden'></div><div class='vtools'><button class='btn primary play hidden' data-k='play'>Play</button><button class='btn danger' data-k='delete'>Delete</button></div></div></div>");
-    m.push_str("</div><div class='tabs'><button class='tab on trecent' data-k='tab:0'><span class='icon'>schedule</span><span>Recent</span></button><button class='tab tbrowse' data-k='tab:1'><span class='icon'>folder</span><span>Browse</span></button></div>");
+    m.push_str("<div class='view hidden'><div class='head'><button class='iconbtn' data-k='up'><span class='icon'>arrow_back</span></button></div><div class='vbody'><div class='vname'></div><div class='vsize'></div><img class='whole hidden'><div class='text hidden'></div><div class='vtools'><button class='btn primary play hidden' data-k='play'>");
+    m.push_str(say(lang, "Play"));
+    m.push_str("</button><button class='btn danger' data-k='delete'>");
+    m.push_str(say(lang, "Delete"));
+    m.push_str("</button></div></div></div>");
+    m.push_str("</div><div class='tabs'><button class='tab on trecent' data-k='tab:0'><span class='icon'>schedule</span><span>");
+    m.push_str(say(lang, "Recent"));
+    m.push_str("</span></button><button class='tab tbrowse' data-k='tab:1'><span class='icon'>folder</span><span>");
+    m.push_str(say(lang, "Browse"));
+    m.push_str("</span></button></div>");
     // The new folder's sheet, over a scrim.
-    m.push_str("<div class='scrim hidden' data-k='cancel'></div><div class='sheet hidden'><div class='stitle'>New folder</div><input class='field' placeholder='Folder name'><div class='buttons'><button class='btn' data-k='cancel'>Cancel</button><button class='btn primary' data-k='make'>Create</button></div></div></div>");
+    m.push_str("<div class='scrim hidden' data-k='cancel'></div><div class='sheet hidden'><div class='stitle'>");
+    m.push_str(say(lang, "New folder"));
+    m.push_str("</div><input class='field' placeholder='");
+    m.push_str(say(lang, "Folder name"));
+    m.push_str("'><div class='buttons'><button class='btn' data-k='cancel'>");
+    m.push_str(say(lang, "Cancel"));
+    m.push_str("</button><button class='btn primary' data-k='make'>");
+    m.push_str(say(lang, "Create"));
+    m.push_str("</button></div></div></div>");
     var why = alloc.String.init(a);
     if not dom.set_markup(host, item: root, markup: m.view(), why: &mut why, a: a) {
         host_api.log(host, msg: why.view());
@@ -132,6 +173,8 @@ fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
     dom.listen(host, item: app, kind: "click");
     dom.listen(host, item: app, kind: "input");
     dom.listen(host, item: root, kind: "back");
+    // A swipe between the tabs, at a tab's top (arche-os T12).
+    dom.listen(host, item: app, kind: "swipe");
     var state = Files {
         tab: RECENT_PAGE,
         path: alloc.String.init(a),
@@ -164,9 +207,203 @@ fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
         sheet: first(host, selector: ".sheet", a: a),
         scrim: first(host, selector: ".scrim", a: a),
         field: first(host, selector: ".field", a: a),
+        lang: lang,
+        locale: locale,
+        styles: [kit_sheet, own_sheet],
     };
     show(&mut state, host: host, a: a);
     return state;
+}
+
+/// The language a locale (BCP 47, "uz-UZ") names: Uzbek, Russian, else
+/// English.
+fn lang_of(locale: str) -> u32 {
+    if locale.starts_with("uz") {
+        return UZ;
+    }
+    if locale.starts_with("ru") {
+        return RU;
+    }
+    return EN;
+}
+
+/// s, English, in lang: itself in English, and for what this does not know.
+fn say(lang: u32, s: str) -> str {
+    if s.eq("Recent") {
+        if lang == UZ { return "Soʻnggilar"; }
+        if lang == RU { return "Недавние"; }
+    }
+    if s.eq("Browse") {
+        if lang == UZ { return "Koʻrish"; }
+        if lang == RU { return "Обзор"; }
+    }
+    if s.eq("Type") {
+        if lang == UZ { return "Turi"; }
+        if lang == RU { return "Тип"; }
+    }
+    if s.eq("Docs") or s.eq("Documents") {
+        if lang == UZ { return "Hujjatlar"; }
+        if lang == RU { return "Документы"; }
+    }
+    if s.eq("Images") or s.eq("Pictures") {
+        if lang == UZ { return "Rasmlar"; }
+        if lang == RU { return "Изображения"; }
+    }
+    if s.eq("Videos") or s.eq("Movies") {
+        if lang == UZ { return "Videolar"; }
+        if lang == RU { return "Видео"; }
+    }
+    if s.eq("Music") {
+        if lang == UZ { return "Musiqa"; }
+        if lang == RU { return "Музыка"; }
+    }
+    if s.eq("Download") {
+        if lang == UZ { return "Yuklanmalar"; }
+        if lang == RU { return "Загрузки"; }
+    }
+    if s.eq("Internal storage") {
+        if lang == UZ { return "Ichki xotira"; }
+        if lang == RU { return "Внутренняя память"; }
+    }
+    if s.eq("Delete folder") {
+        if lang == UZ { return "Jildni oʻchirish"; }
+        if lang == RU { return "Удалить папку"; }
+    }
+    if s.eq("Play") {
+        if lang == UZ { return "Ijro etish"; }
+        if lang == RU { return "Воспроизвести"; }
+    }
+    if s.eq("Delete") {
+        if lang == UZ { return "Oʻchirish"; }
+        if lang == RU { return "Удалить"; }
+    }
+    if s.eq("New folder") {
+        if lang == UZ { return "Yangi jild"; }
+        if lang == RU { return "Новая папка"; }
+    }
+    if s.eq("Folder name") {
+        if lang == UZ { return "Jild nomi"; }
+        if lang == RU { return "Имя папки"; }
+    }
+    if s.eq("Cancel") {
+        if lang == UZ { return "Bekor qilish"; }
+        if lang == RU { return "Отмена"; }
+    }
+    if s.eq("Create") {
+        if lang == UZ { return "Yaratish"; }
+        if lang == RU { return "Создать"; }
+    }
+    if s.eq("No files yet") {
+        if lang == UZ { return "Hali fayllar yoʻq"; }
+        if lang == RU { return "Файлов пока нет"; }
+    }
+    if s.eq("This folder is empty") {
+        if lang == UZ { return "Bu jild boʻsh"; }
+        if lang == RU { return "Папка пуста"; }
+    }
+    if s.eq("Not there any more") {
+        if lang == UZ { return "Endi mavjud emas"; }
+        if lang == RU { return "Больше не существует"; }
+    }
+    if s.eq("No preview") {
+        if lang == UZ { return "Oldindan koʻrish yoʻq"; }
+        if lang == RU { return "Нет предпросмотра"; }
+    }
+    if s.eq("Earlier") {
+        if lang == UZ { return "Avvalroq"; }
+        if lang == RU { return "Ранее"; }
+    }
+    if s.eq("Today") {
+        if lang == UZ { return "Bugun"; }
+        if lang == RU { return "Сегодня"; }
+    }
+    if s.eq("Yesterday") {
+        if lang == UZ { return "Kecha"; }
+        if lang == RU { return "Вчера"; }
+    }
+    return s;
+}
+
+/// The name the folder at path is shown by: its own, the last of path's;
+/// but the phone's five shared folders, at the top, by theirs in lang
+/// (Pictures, Rasmlar, Изображения). Their paths keep their names.
+fn folder_label(lang: u32, path: str) -> str {
+    if path.eq("Documents") or path.eq("Download") or path.eq("Movies") or path.eq("Music") or path.eq("Pictures") {
+        return say(lang, path);
+    }
+    var cut = path.len();
+    while cut > 0 and path.bytes()[cut - 1] != '/' {
+        cut -= 1;
+    }
+    return path[cut..path.len()];
+}
+
+/// A month's short name in lang, 1 for January.
+fn month_name(lang: u32, m: i64) -> str {
+    if lang == UZ {
+        if m == 1 { return "yan"; }
+        if m == 2 { return "fev"; }
+        if m == 3 { return "mar"; }
+        if m == 4 { return "apr"; }
+        if m == 5 { return "may"; }
+        if m == 6 { return "iyn"; }
+        if m == 7 { return "iyl"; }
+        if m == 8 { return "avg"; }
+        if m == 9 { return "sen"; }
+        if m == 10 { return "okt"; }
+        if m == 11 { return "noy"; }
+        return "dek";
+    }
+    if lang == RU {
+        if m == 1 { return "янв"; }
+        if m == 2 { return "фев"; }
+        if m == 3 { return "мар"; }
+        if m == 4 { return "апр"; }
+        if m == 5 { return "мая"; }
+        if m == 6 { return "июн"; }
+        if m == 7 { return "июл"; }
+        if m == 8 { return "авг"; }
+        if m == 9 { return "сен"; }
+        if m == 10 { return "окт"; }
+        if m == 11 { return "ноя"; }
+        return "дек";
+    }
+    if m == 1 { return "Jan"; }
+    if m == 2 { return "Feb"; }
+    if m == 3 { return "Mar"; }
+    if m == 4 { return "Apr"; }
+    if m == 5 { return "May"; }
+    if m == 6 { return "Jun"; }
+    if m == 7 { return "Jul"; }
+    if m == 8 { return "Aug"; }
+    if m == 9 { return "Sep"; }
+    if m == 10 { return "Oct"; }
+    if m == 11 { return "Nov"; }
+    return "Dec";
+}
+
+/// Which of Russian's three forms a noun takes after n: 0 as after 1 (21,
+/// 101), 1 as after 2 to 4 (22, 104), 2 as after 5 to 20 (11, 25).
+fn ru_form(n: u64) -> u32 {
+    if n % 10 == 1 and n % 100 != 11 {
+        return 0;
+    }
+    if n % 10 >= 2 and n % 10 <= 4 and (n % 100 < 12 or n % 100 > 14) {
+        return 1;
+    }
+    return 2;
+}
+
+/// The page made again, in the phone's language now: its stylesheets and
+/// nodes away, then init's.
+fn again(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    dom.remove_stylesheet(host, sheet: state.styles[0]);
+    dom.remove_stylesheet(host, sheet: state.styles[1]);
+    dom.unlisten(host, item: dom.root(host), kind: "back");
+    for old in dom.children(host, item: dom.root(host), a: a).items() {
+        dom.release(host, item: old.*);
+    }
+    state.* = init(host, a: a);
 }
 
 /// A kind's tile: its icon on its color, its name; a tap opens its folder.
@@ -183,9 +420,22 @@ fn kind(out: &mut alloc.String, key: str, name: str, glyph: str, color: str) {
 }
 
 fn update(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    // The phone's language changed: the page again, in it.
+    let locale = host_api.locale(host, a: a);
+    if not locale.view().eq(state.locale.view()) {
+        again(state, host: host, a: a);
+    }
     var changed = false;
     for e in dom.events(host, a: a).items() {
-        if e.kind.view().eq("back") {
+        if e.kind.view().eq("swipe") and state.path.len() == 0 and state.file.len() == 0 and not state.asking {
+            if e.value.view().eq("left") and state.tab == RECENT_PAGE {
+                press(state, host: host, key: "tab:1", a: a);
+                changed = true;
+            } else if e.value.view().eq("right") and state.tab == BROWSE {
+                press(state, host: host, key: "tab:0", a: a);
+                changed = true;
+            }
+        } else if e.kind.view().eq("back") {
             if state.asking {
                 press(state, host: host, key: "cancel", a: a);
             } else {
@@ -463,14 +713,15 @@ fn today(host: &mut std.Host) -> i64 {
     return d;
 }
 
-/// A day as a file manager says it: Today, Yesterday, else its date.
-fn day_said(day: i64, now: i64, out: &mut alloc.String) {
+/// A day as a file manager says it, in lang: Today, Yesterday, else its
+/// date ("Nov 10", "10-noy", "10 ноя").
+fn day_said(lang: u32, day: i64, now: i64, out: &mut alloc.String) {
     if day == NO_DAY {
-        out.push_str("Earlier");
+        out.push_str(say(lang, "Earlier"));
     } else if day == now {
-        out.push_str("Today");
+        out.push_str(say(lang, "Today"));
     } else if day == now - 1 {
-        out.push_str("Yesterday");
+        out.push_str(say(lang, "Yesterday"));
     } else {
         // Its date, as the month's three letters and the day.
         let z = day + 719468;
@@ -484,17 +735,25 @@ fn day_said(day: i64, now: i64, out: &mut alloc.String) {
         if mp >= 10 {
             m = mp - 9;
         }
-        let names = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec";
-        let at = ((m - 1) * 4) as usize;
-        out.push_str(names[at..at + 3]);
-        out.push_str(" ");
-        out.push_u64(d as u64);
+        if lang == UZ {
+            out.push_u64(d as u64);
+            out.push_str("-");
+            out.push_str(month_name(lang, m));
+        } else if lang == RU {
+            out.push_u64(d as u64);
+            out.push_str(" ");
+            out.push_str(month_name(lang, m));
+        } else {
+            out.push_str(month_name(lang, m));
+            out.push_str(" ");
+            out.push_u64(d as u64);
+        }
     }
 }
 
 /// The top's folders, and those in them, a level down: the files of each
-/// onto into.
-fn gather(host: &mut std.Host, path: str, depth: u32, into: &mut alloc.List(Recent), a: alloc.Allocator) {
+/// onto into, with their folders' names as shown in lang.
+fn gather(host: &mut std.Host, path: str, lang: u32, depth: u32, into: &mut alloc.List(Recent), a: alloc.Allocator) {
     for e in files.list(host, path: path, a: a).items() {
         let n = e.name.view();
         if n.starts_with(".") {
@@ -503,19 +762,15 @@ fn gather(host: &mut std.Host, path: str, depth: u32, into: &mut alloc.List(Rece
         let p = joined(path: path, name: n, a: a);
         if e.folder {
             if depth < 2 {
-                gather(host, path: p.view(), depth: depth + 1, into: into, a: a);
+                gather(host, path: p.view(), lang: lang, depth: depth + 1, into: into, a: a);
             }
             continue;
         }
         if depth == 0 {
             continue;
         }
-        var folder = path;
-        var cut = path.len();
-        while cut > 0 and path.bytes()[cut - 1] != '/' {
-            cut -= 1;
-        }
-        folder = path[cut..path.len()];
+        // The folder it is in, by its name as shown.
+        let folder = folder_label(lang, path);
         let when = made(n);
         into.push(Recent { path: p, name: alloc.String.from(n, a), folder: alloc.String.from(folder, a), size: e.size, day: when[0], minute: when[1], thumb: NO_IMAGE });
     }
@@ -649,7 +904,7 @@ fn show_recent(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
         dom.release(host, item: old.*);
     }
     var all = alloc.List(Recent).init(a);
-    gather(host, path: "", depth: 0, into: &mut all, a: a);
+    gather(host, path: "", lang: state.lang, depth: 0, into: &mut all, a: a);
     var order = alloc.List(usize).init(a);
     var j: usize = 0;
     while j < all.len() : (j += 1) {
@@ -667,7 +922,7 @@ fn show_recent(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
         let nothing = dom.create_element(host, tag: "div");
         dom.set_attribute(host, item: nothing, name: "class", value_: "empty");
         line(host, parent_: nothing, class: "icon", text: "folder_open", a: a);
-        line(host, parent_: nothing, class: "", text: "No files yet", a: a);
+        line(host, parent_: nothing, class: "", text: say(state.lang, "No files yet"), a: a);
         dom.append_child(host, parent_: state.recent_list, child: nothing);
         return;
     }
@@ -684,14 +939,9 @@ fn show_recent(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
         let bar = dom.create_element(host, tag: "div");
         dom.set_attribute(host, item: bar, name: "class", value_: "daybar");
         var said = alloc.String.init(a);
-        day_said(day: day, now: now, out: &mut said);
+        day_said(state.lang, day: day, now: now, out: &mut said);
         said.push_str("  |  ");
-        said.push_u64((end - k) as u64);
-        if end - k == 1 {
-            said.push_str(" item");
-        } else {
-            said.push_str(" items");
-        }
+        items_said(state.lang, n: (end - k) as u64, out: &mut said);
         dom.set_text(host, item: bar, text: said.view());
         dom.append_child(host, parent_: state.recent_list, child: bar);
         let grid = dom.create_element(host, tag: "div");
@@ -736,19 +986,30 @@ fn items_in(host: &mut std.Host, path: str, a: alloc.Allocator) -> u64 {
     return n;
 }
 
-/// "13 items", "1 item".
-fn items_said(n: u64, out: &mut alloc.String) {
+/// "13 items", "1 item", in lang: "13 ta element", "13 элементов".
+fn items_said(lang: u32, n: u64, out: &mut alloc.String) {
     out.push_u64(n);
-    if n == 1 {
+    if lang == UZ {
+        out.push_str(" ta element");
+    } else if lang == RU {
+        let form = ru_form(n);
+        if form == 0 {
+            out.push_str(" элемент");
+        } else if form == 1 {
+            out.push_str(" элемента");
+        } else {
+            out.push_str(" элементов");
+        }
+    } else if n == 1 {
         out.push_str(" item");
     } else {
         out.push_str(" items");
     }
 }
 
-/// A folder's row: its icon, its name over how many items it has, and a
-/// chevron.
-fn folder_row(host: &mut std.Host, parent_: u32, path: str, name: str, a: alloc.Allocator) {
+/// A folder's row: its icon, its name over how many items it has, in lang,
+/// and a chevron.
+fn folder_row(host: &mut std.Host, parent_: u32, lang: u32, path: str, name: str, a: alloc.Allocator) {
     let row = dom.create_element(host, tag: "button");
     dom.set_attribute(host, item: row, name: "class", value_: "frow");
     var key = alloc.String.from("d:", a);
@@ -762,7 +1023,7 @@ fn folder_row(host: &mut std.Host, parent_: u32, path: str, name: str, a: alloc.
     dom.set_attribute(host, item: lines, name: "class", value_: "lines");
     line(host, parent_: lines, class: "primary", text: name, a: a);
     var count = alloc.String.init(a);
-    items_said(items_in(host, path: path, a: a), out: &mut count);
+    items_said(lang, n: items_in(host, path: path, a: a), out: &mut count);
     line(host, parent_: lines, class: "secondary", text: count.view(), a: a);
     dom.append_child(host, parent_: row, child: lines);
     line(host, parent_: row, class: "icon chev", text: "chevron_right", a: a);
@@ -776,7 +1037,7 @@ fn show_browse(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     }
     for e in files.list(host, path: "", a: a).items() {
         if e.folder and not e.name.view().starts_with(".") {
-            folder_row(host, parent_: state.folder_rows, path: e.name.view(), name: e.name.view(), a: a);
+            folder_row(host, parent_: state.folder_rows, lang: state.lang, path: e.name.view(), name: folder_label(state.lang, e.name.view()), a: a);
         }
     }
 }
@@ -788,23 +1049,22 @@ fn show_folder(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     while cut > 0 and p.bytes()[cut - 1] != '/' {
         cut -= 1;
     }
-    dom.set_text(host, item: state.folder_title, text: p[cut..p.len()]);
+    dom.set_text(host, item: state.folder_title, text: folder_label(state.lang, p));
     // Where it is: Internal storage, then each folder down to it.
     for old in dom.children(host, item: state.crumbs, a: a).items() {
         dom.release(host, item: old.*);
     }
-    line(host, parent_: state.crumbs, class: "crumb", text: "Internal storage", a: a);
-    var from: usize = 0;
+    line(host, parent_: state.crumbs, class: "crumb", text: say(state.lang, "Internal storage"), a: a);
     var at: usize = 0;
     while at <= p.len() : (at += 1) {
         if at == p.len() or p.bytes()[at] == '/' {
+            // Each folder by its name as shown: the last of its path's.
             line(host, parent_: state.crumbs, class: "icon", text: "chevron_right", a: a);
             if at == p.len() {
-                line(host, parent_: state.crumbs, class: "crumb at", text: p[from..at], a: a);
+                line(host, parent_: state.crumbs, class: "crumb at", text: folder_label(state.lang, p[0..at]), a: a);
             } else {
-                line(host, parent_: state.crumbs, class: "crumb", text: p[from..at], a: a);
+                line(host, parent_: state.crumbs, class: "crumb", text: folder_label(state.lang, p[0..at]), a: a);
             }
-            from = at + 1;
         }
     }
     for old in dom.children(host, item: state.rows, a: a).items() {
@@ -822,7 +1082,7 @@ fn show_folder(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
             count += 1;
             let path = joined(path: p, name: n, a: a);
             if e.folder {
-                folder_row(host, parent_: state.rows, path: path.view(), name: n, a: a);
+                folder_row(host, parent_: state.rows, lang: state.lang, path: path.view(), name: n, a: a);
                 continue;
             }
             let row = dom.create_element(host, tag: "button");
@@ -848,7 +1108,7 @@ fn show_folder(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
         let nothing = dom.create_element(host, tag: "div");
         dom.set_attribute(host, item: nothing, name: "class", value_: "empty");
         line(host, parent_: nothing, class: "icon", text: "folder_open", a: a);
-        line(host, parent_: nothing, class: "", text: "This folder is empty", a: a);
+        line(host, parent_: nothing, class: "", text: say(state.lang, "This folder is empty"), a: a);
         dom.append_child(host, parent_: state.rows, child: nothing);
     }
     // An empty folder, not one of the top's, can be deleted.
@@ -873,7 +1133,7 @@ fn show_file(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     if there {
         size_text(&mut sz, n: size);
     } else {
-        sz.push_str("Not there any more");
+        sz.push_str(say(state.lang, "Not there any more"));
     }
     dom.set_text(host, item: state.view_size, text: sz.view());
     let picture = is_picture(name);
@@ -905,7 +1165,7 @@ fn show_file(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     if text_like(shown) {
         dom.set_text(host, item: state.view_text, text: utf8.as_str(shown));
     } else {
-        dom.set_text(host, item: state.view_text, text: "No preview");
+        dom.set_text(host, item: state.view_text, text: say(state.lang, "No preview"));
     }
 }
 
