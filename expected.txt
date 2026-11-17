@@ -1,702 +1,2868 @@
-=== headless run: 13 frames ===
+=== headless run: 14 frames ===
 
 --- frame 0  (clicks fed to guest: []) ---
-   [page] 63 nodes
+   [page] 147 nodes
    #1 body {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up.hidden [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #27 "Files"
-       #8 div.part
-         #9 div.group.rows
-           #28 button.row [data-k="d:Documents"]
-             #29 div.tile [style="background: #f2b01e"]
-               #30 span.icon.fill
-                 #31 "folder"
-             #32 div.lines
-               #33 div.primary.name
-                 #34 "Documents"
-               #35 div.secondary.what
-                 #36 "Folder"
-           #37 button.row [data-k="d:Download"]
-             #38 div.tile [style="background: #f2b01e"]
-               #39 span.icon.fill
-                 #40 "folder"
-             #41 div.lines
-               #42 div.primary.name
-                 #43 "Download"
-               #44 div.secondary.what
-                 #45 "Folder"
-           #46 button.row [data-k="d:Music"]
-             #47 div.tile [style="background: #f2b01e"]
-               #48 span.icon.fill
-                 #49 "folder"
-             #50 div.lines
-               #51 div.primary.name
-                 #52 "Music"
-               #53 div.secondary.what
-                 #54 "Folder"
-           #55 button.row [data-k="d:Pictures"]
-             #56 div.tile [style="background: #f2b01e"]
-               #57 span.icon.fill
-                 #58 "folder"
-             #59 div.lines
-               #60 div.primary.name
-                 #61 "Pictures"
-               #62 div.secondary.what
-                 #63 "Folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-         #22 div.secondary.size
-         #23 div.text
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage
+           #5 div.recentpart
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart.hidden
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+         #47 div.folderpart.hidden
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+           #57 div.rows
+           #58 button.btn.danger.drop [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+             #67 div.vsize
+             #68 img.whole.hidden
+             #69 div.text.hidden
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs
+         #76 button.tab.trecent.on [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value=""
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 1  (clicks fed to guest: []) ---
-   [tap] #28
-   [page] 45 nodes
+   [tap] #108
+   [page] 150 nodes
    #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #64 "Documents"
-       #8 div.part
-         #9 div.group.rows
-           #65 button.row [data-k="f:list.txt"]
-             #66 div.tile [style="background: #8e5cf7"]
-               #67 span.icon.fill
-                 #68 "description"
-             #69 div.lines
-               #70 div.primary.name
-                 #71 "list.txt"
-               #72 div.secondary.what
-                 #73 "20 B"
-           #74 button.row [data-k="f:readme.txt"]
-             #75 div.tile [style="background: #8e5cf7"]
-               #76 span.icon.fill
-                 #77 "description"
-             #78 div.lines
-               #79 div.primary.name
-                 #80 "readme.txt"
-               #81 div.secondary.what
-                 #82 "36 B"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-         #22 div.secondary.size
-         #23 div.text
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart.hidden
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+         #47 div.folderpart.hidden
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+           #57 div.rows
+           #58 button.btn.danger.drop [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent.on [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value=""
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 2  (clicks fed to guest: []) ---
-   [tap] #74
-   [page] 48 nodes
+   [tap] #62
+   [page] 175 nodes
    #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #83 "Documents"
-       #8 div.part.hidden
-         #9 div.group.rows
-           #65 button.row [data-k="f:list.txt"]
-             #66 div.tile [style="background: #8e5cf7"]
-               #67 span.icon.fill
-                 #68 "description"
-             #69 div.lines
-               #70 div.primary.name
-                 #71 "list.txt"
-               #72 div.secondary.what
-                 #73 "20 B"
-           #74 button.row [data-k="f:readme.txt"]
-             #75 div.tile [style="background: #8e5cf7"]
-               #76 span.icon.fill
-                 #77 "description"
-             #78 div.lines
-               #79 div.primary.name
-                 #80 "readme.txt"
-               #81 div.secondary.what
-                 #82 "36 B"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart.hidden
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #151 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #152 div.crumb
+               #153 "Internal storage"
+             #154 div.icon
+               #155 "chevron_right"
+             #156 div.crumb.at
+               #157 "Documents"
+           #57 div.rows
+             #158 button.frow [data-k="f:Documents/list.txt"]
+               #159 div.fthumb [style="background: #f5b82e"]
+                 #160 span.icon.fill
+                   #161 "description"
+               #162 div.lines
+                 #163 div.primary
+                   #164 "list.txt"
+                 #165 div.secondary
+                   #166 "20 B"
+             #167 button.frow [data-k="f:Documents/readme.txt"]
+               #168 div.fthumb [style="background: #f5b82e"]
+                 #169 span.icon.fill
+                   #170 "description"
+               #171 div.lines
+                 #172 div.primary
+                   #173 "readme.txt"
+                 #174 div.secondary
+                   #175 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent.on [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value=""
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 3  (clicks fed to guest: []) ---
-   [tap] #4
-   [page] 48 nodes
-   #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #87 "Documents"
-       #8 div.part
-         #9 div.group.rows
-           #88 button.row [data-k="f:list.txt"]
-             #89 div.tile [style="background: #8e5cf7"]
-               #90 span.icon.fill
-                 #91 "description"
-             #92 div.lines
-               #93 div.primary.name
-                 #94 "list.txt"
-               #95 div.secondary.what
-                 #96 "20 B"
-           #97 button.row [data-k="f:readme.txt"]
-             #98 div.tile [style="background: #8e5cf7"]
-               #99 span.icon.fill
-                 #100 "description"
-             #101 div.lines
-               #102 div.primary.name
-                 #103 "readme.txt"
-               #104 div.secondary.what
-                 #105 "36 B"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+   [tap] #81
+   [page] 215 nodes
+   #1 body {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart.hidden
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #151 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #152 div.crumb
+               #153 "Internal storage"
+             #154 div.icon
+               #155 "chevron_right"
+             #156 div.crumb.at
+               #157 "Documents"
+           #57 div.rows
+             #158 button.frow [data-k="f:Documents/list.txt"]
+               #159 div.fthumb [style="background: #f5b82e"]
+                 #160 span.icon.fill
+                   #161 "description"
+               #162 div.lines
+                 #163 div.primary
+                   #164 "list.txt"
+                 #165 div.secondary
+                   #166 "20 B"
+             #167 button.frow [data-k="f:Documents/readme.txt"]
+               #168 div.fthumb [style="background: #f5b82e"]
+                 #169 span.icon.fill
+                   #170 "description"
+               #171 div.lines
+                 #172 div.primary
+                   #173 "readme.txt"
+                 #174 div.secondary
+                   #175 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value=""
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 4  (clicks fed to guest: []) ---
-   [tap] #4
-   [page] 66 nodes
-   #1 body {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up.hidden [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #106 "Files"
-       #8 div.part
-         #9 div.group.rows
-           #107 button.row [data-k="d:Documents"]
-             #108 div.tile [style="background: #f2b01e"]
-               #109 span.icon.fill
-                 #110 "folder"
-             #111 div.lines
-               #112 div.primary.name
-                 #113 "Documents"
-               #114 div.secondary.what
-                 #115 "Folder"
-           #116 button.row [data-k="d:Download"]
-             #117 div.tile [style="background: #f2b01e"]
-               #118 span.icon.fill
-                 #119 "folder"
-             #120 div.lines
-               #121 div.primary.name
-                 #122 "Download"
-               #123 div.secondary.what
-                 #124 "Folder"
-           #125 button.row [data-k="d:Music"]
-             #126 div.tile [style="background: #f2b01e"]
-               #127 span.icon.fill
-                 #128 "folder"
-             #129 div.lines
-               #130 div.primary.name
-                 #131 "Music"
-               #132 div.secondary.what
-                 #133 "Folder"
-           #134 button.row [data-k="d:Pictures"]
-             #135 div.tile [style="background: #f2b01e"]
-               #136 span.icon.fill
-                 #137 "folder"
-             #138 div.lines
-               #139 div.primary.name
-                 #140 "Pictures"
-               #141 div.secondary.what
-                 #142 "Folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+   [tap] #16
+   [page] 215 nodes
+   #1 body [data-back="1"] {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #216 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #217 div.crumb
+               #218 "Internal storage"
+             #219 div.icon
+               #220 "chevron_right"
+             #221 div.crumb.at
+               #222 "Documents"
+           #57 div.rows
+             #223 button.frow [data-k="f:Documents/list.txt"]
+               #224 div.fthumb [style="background: #f5b82e"]
+                 #225 span.icon.fill
+                   #226 "description"
+               #227 div.lines
+                 #228 div.primary
+                   #229 "list.txt"
+                 #230 div.secondary
+                   #231 "20 B"
+             #232 button.frow [data-k="f:Documents/readme.txt"]
+               #233 div.fthumb [style="background: #f5b82e"]
+                 #234 span.icon.fill
+                   #235 "description"
+               #236 div.lines
+                 #237 div.primary
+                   #238 "readme.txt"
+                 #239 div.secondary
+                   #240 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value=""
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 5  (clicks fed to guest: []) ---
-   [type] #15 = "Trips"
-   [page] 66 nodes
-   #1 body {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up.hidden [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #106 "Files"
-       #8 div.part
-         #9 div.group.rows
-           #107 button.row [data-k="d:Documents"]
-             #108 div.tile [style="background: #f2b01e"]
-               #109 span.icon.fill
-                 #110 "folder"
-             #111 div.lines
-               #112 div.primary.name
-                 #113 "Documents"
-               #114 div.secondary.what
-                 #115 "Folder"
-           #116 button.row [data-k="d:Download"]
-             #117 div.tile [style="background: #f2b01e"]
-               #118 span.icon.fill
-                 #119 "folder"
-             #120 div.lines
-               #121 div.primary.name
-                 #122 "Download"
-               #123 div.secondary.what
-                 #124 "Folder"
-           #125 button.row [data-k="d:Music"]
-             #126 div.tile [style="background: #f2b01e"]
-               #127 span.icon.fill
-                 #128 "folder"
-             #129 div.lines
-               #130 div.primary.name
-                 #131 "Music"
-               #132 div.secondary.what
-                 #133 "Folder"
-           #134 button.row [data-k="d:Pictures"]
-             #135 div.tile [style="background: #f2b01e"]
-               #136 span.icon.fill
-                 #137 "folder"
-             #138 div.lines
-               #139 div.primary.name
-                 #140 "Pictures"
-               #141 div.secondary.what
-                 #142 "Folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value="Trips"
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+   [tap] #53
+   [page] 215 nodes
+   #1 body [data-back="1"] {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #241 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #242 div.crumb
+               #243 "Internal storage"
+             #244 div.icon
+               #245 "chevron_right"
+             #246 div.crumb.at
+               #247 "Documents"
+           #57 div.rows
+             #248 button.frow [data-k="f:Documents/list.txt"]
+               #249 div.fthumb [style="background: #f5b82e"]
+                 #250 span.icon.fill
+                   #251 "description"
+               #252 div.lines
+                 #253 div.primary
+                   #254 "list.txt"
+                 #255 div.secondary
+                   #256 "20 B"
+             #257 button.frow [data-k="f:Documents/readme.txt"]
+               #258 div.fthumb [style="background: #f5b82e"]
+                 #259 span.icon.fill
+                   #260 "description"
+               #261 div.lines
+                 #262 div.primary
+                   #263 "readme.txt"
+                 #264 div.secondary
+                   #265 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim [data-k="cancel"]
+       #87 div.sheet
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 6  (clicks fed to guest: []) ---
-   [tap] #16
-   [page] 75 nodes
-   #1 body {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up.hidden [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #143 "Files"
-       #8 div.part
-         #9 div.group.rows
-           #144 button.row [data-k="d:Documents"]
-             #145 div.tile [style="background: #f2b01e"]
-               #146 span.icon.fill
-                 #147 "folder"
-             #148 div.lines
-               #149 div.primary.name
-                 #150 "Documents"
-               #151 div.secondary.what
-                 #152 "Folder"
-           #153 button.row [data-k="d:Download"]
-             #154 div.tile [style="background: #f2b01e"]
-               #155 span.icon.fill
-                 #156 "folder"
-             #157 div.lines
-               #158 div.primary.name
-                 #159 "Download"
-               #160 div.secondary.what
-                 #161 "Folder"
-           #162 button.row [data-k="d:Music"]
-             #163 div.tile [style="background: #f2b01e"]
-               #164 span.icon.fill
-                 #165 "folder"
-             #166 div.lines
-               #167 div.primary.name
-                 #168 "Music"
-               #169 div.secondary.what
-                 #170 "Folder"
-           #171 button.row [data-k="d:Pictures"]
-             #172 div.tile [style="background: #f2b01e"]
-               #173 span.icon.fill
-                 #174 "folder"
-             #175 div.lines
-               #176 div.primary.name
-                 #177 "Pictures"
-               #178 div.secondary.what
-                 #179 "Folder"
-           #180 button.row [data-k="d:Trips"]
-             #181 div.tile [style="background: #f2b01e"]
-               #182 span.icon.fill
-                 #183 "folder"
-             #184 div.lines
-               #185 div.primary.name
-                 #186 "Trips"
-               #187 div.secondary.what
-                 #188 "Folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+   [type] #90 = "Trips"
+   [page] 215 nodes
+   #1 body [data-back="1"] {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #241 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #242 div.crumb
+               #243 "Internal storage"
+             #244 div.icon
+               #245 "chevron_right"
+             #246 div.crumb.at
+               #247 "Documents"
+           #57 div.rows
+             #248 button.frow [data-k="f:Documents/list.txt"]
+               #249 div.fthumb [style="background: #f5b82e"]
+                 #250 span.icon.fill
+                   #251 "description"
+               #252 div.lines
+                 #253 div.primary
+                   #254 "list.txt"
+                 #255 div.secondary
+                   #256 "20 B"
+             #257 button.frow [data-k="f:Documents/readme.txt"]
+               #258 div.fthumb [style="background: #f5b82e"]
+                 #259 span.icon.fill
+                   #260 "description"
+               #261 div.lines
+                 #262 div.primary
+                   #263 "readme.txt"
+                 #264 div.secondary
+                   #265 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim [data-k="cancel"]
+       #87 div.sheet
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 7  (clicks fed to guest: []) ---
-   [tap] #180
-   [page] 32 nodes
+   [tap] #94
+   [page] 225 nodes
    #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #189 "Trips"
-       #8 div.part
-         #9 div.group.rows
-           #190 div.none
-             #191 "Empty folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #266 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #267 div.crumb
+               #268 "Internal storage"
+             #269 div.icon
+               #270 "chevron_right"
+             #271 div.crumb.at
+               #272 "Documents"
+           #57 div.rows
+             #273 button.frow [data-k="d:Documents/Trips"]
+               #274 span.icon.fill.fold
+                 #275 "folder"
+               #276 div.lines
+                 #277 div.primary
+                   #278 "Trips"
+                 #279 div.secondary
+                   #280 "0 items"
+               #281 div.icon.chev
+                 #282 "chevron_right"
+             #283 button.frow [data-k="f:Documents/list.txt"]
+               #284 div.fthumb [style="background: #f5b82e"]
+                 #285 span.icon.fill
+                   #286 "description"
+               #287 div.lines
+                 #288 div.primary
+                   #289 "list.txt"
+                 #290 div.secondary
+                   #291 "20 B"
+             #292 button.frow [data-k="f:Documents/readme.txt"]
+               #293 div.fthumb [style="background: #f5b82e"]
+                 #294 span.icon.fill
+                   #295 "description"
+               #296 div.lines
+                 #297 div.primary
+                   #298 "readme.txt"
+                 #299 div.secondary
+                   #300 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 8  (clicks fed to guest: []) ---
-   [tap] #18
-   [page] 66 nodes
-   #1 body {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up.hidden [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #192 "Files"
-       #8 div.part
-         #9 div.group.rows
-           #193 button.row [data-k="d:Documents"]
-             #194 div.tile [style="background: #f2b01e"]
-               #195 span.icon.fill
-                 #196 "folder"
-             #197 div.lines
-               #198 div.primary.name
-                 #199 "Documents"
-               #200 div.secondary.what
-                 #201 "Folder"
-           #202 button.row [data-k="d:Download"]
-             #203 div.tile [style="background: #f2b01e"]
-               #204 span.icon.fill
-                 #205 "folder"
-             #206 div.lines
-               #207 div.primary.name
-                 #208 "Download"
-               #209 div.secondary.what
-                 #210 "Folder"
-           #211 button.row [data-k="d:Music"]
-             #212 div.tile [style="background: #f2b01e"]
-               #213 span.icon.fill
-                 #214 "folder"
-             #215 div.lines
-               #216 div.primary.name
-                 #217 "Music"
-               #218 div.secondary.what
-                 #219 "Folder"
-           #220 button.row [data-k="d:Pictures"]
-             #221 div.tile [style="background: #f2b01e"]
-               #222 span.icon.fill
-                 #223 "folder"
-             #224 div.lines
-               #225 div.primary.name
-                 #226 "Pictures"
-               #227 div.secondary.what
-                 #228 "Folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+   [tap] #273
+   [page] 206 nodes
+   #1 body [data-back="1"] {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #301 "Trips"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #302 div.crumb
+               #303 "Internal storage"
+             #304 div.icon
+               #305 "chevron_right"
+             #306 div.crumb
+               #307 "Documents"
+             #308 div.icon
+               #309 "chevron_right"
+             #310 div.crumb.at
+               #311 "Trips"
+           #57 div.rows
+             #312 div.empty
+               #313 div.icon
+                 #314 "folder_open"
+               #315 div
+                 #316 "This folder is empty"
+           #58 button.btn.danger.drop [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 9  (clicks fed to guest: []) ---
-   [tap] #220
-   [page] 39 nodes
+   [tap] #58
+   [page] 215 nodes
    #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #229 "Pictures"
-       #8 div.part
-         #9 div.group.rows
-           #230 button.row [data-k="f:sky.png"]
-             #231 div.tile [style="background: #2f80ed"]
-               #232 span.icon.fill
-                 #233 "image"
-             #234 div.lines
-               #235 div.primary.name
-                 #236 "sky.png"
-               #237 div.secondary.what
-                 #238 "107 B"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #84 "readme.txt"
-         #22 div.secondary.size
-           #85 "36 B"
-         #23 div.text
-           #86 "Arche phone\nShared files, in Arche.\n"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #176 button.frow [data-k="d:Documents"]
+                 #177 span.icon.fill.fold
+                   #178 "folder"
+                 #179 div.lines
+                   #180 div.primary
+                     #181 "Documents"
+                   #182 div.secondary
+                     #183 "2 items"
+                 #184 div.icon.chev
+                   #185 "chevron_right"
+               #186 button.frow [data-k="d:Download"]
+                 #187 span.icon.fill.fold
+                   #188 "folder"
+                 #189 div.lines
+                   #190 div.primary
+                     #191 "Download"
+                   #192 div.secondary
+                     #193 "1 item"
+                 #194 div.icon.chev
+                   #195 "chevron_right"
+               #196 button.frow [data-k="d:Music"]
+                 #197 span.icon.fill.fold
+                   #198 "folder"
+                 #199 div.lines
+                   #200 div.primary
+                     #201 "Music"
+                   #202 div.secondary
+                     #203 "1 item"
+                 #204 div.icon.chev
+                   #205 "chevron_right"
+               #206 button.frow [data-k="d:Pictures"]
+                 #207 span.icon.fill.fold
+                   #208 "folder"
+                 #209 div.lines
+                   #210 div.primary
+                     #211 "Pictures"
+                   #212 div.secondary
+                     #213 "1 item"
+                 #214 div.icon.chev
+                   #215 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #317 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #318 div.crumb
+               #319 "Internal storage"
+             #320 div.icon
+               #321 "chevron_right"
+             #322 div.crumb.at
+               #323 "Documents"
+           #57 div.rows
+             #324 button.frow [data-k="f:Documents/list.txt"]
+               #325 div.fthumb [style="background: #f5b82e"]
+                 #326 span.icon.fill
+                   #327 "description"
+               #328 div.lines
+                 #329 div.primary
+                   #330 "list.txt"
+                 #331 div.secondary
+                   #332 "20 B"
+             #333 button.frow [data-k="f:Documents/readme.txt"]
+               #334 div.fthumb [style="background: #f5b82e"]
+                 #335 span.icon.fill
+                   #336 "description"
+               #337 div.lines
+                 #338 div.primary
+                   #339 "readme.txt"
+                 #340 div.secondary
+                   #341 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 10  (clicks fed to guest: []) ---
-   [tap] #230
-   [page] 39 nodes
-   #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #239 "Pictures"
-       #8 div.part.hidden
-         #9 div.group.rows
-           #230 button.row [data-k="f:sky.png"]
-             #231 div.tile [style="background: #2f80ed"]
-               #232 span.icon.fill
-                 #233 "image"
-             #234 div.lines
-               #235 div.primary.name
-                 #236 "sky.png"
-               #237 div.secondary.what
-                 #238 "107 B"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop.hidden [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view
-         #21 div.title
-           #240 "sky.png"
-         #22 div.secondary.size
-           #241 "107 B"
-         #23 div.text
-           #242 "No preview"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+   [tap] #49
+   [page] 215 nodes
+   #1 body {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #342 button.frow [data-k="d:Documents"]
+                 #343 span.icon.fill.fold
+                   #344 "folder"
+                 #345 div.lines
+                   #346 div.primary
+                     #347 "Documents"
+                   #348 div.secondary
+                     #349 "2 items"
+                 #350 div.icon.chev
+                   #351 "chevron_right"
+               #352 button.frow [data-k="d:Download"]
+                 #353 span.icon.fill.fold
+                   #354 "folder"
+                 #355 div.lines
+                   #356 div.primary
+                     #357 "Download"
+                   #358 div.secondary
+                     #359 "1 item"
+                 #360 div.icon.chev
+                   #361 "chevron_right"
+               #362 button.frow [data-k="d:Music"]
+                 #363 span.icon.fill.fold
+                   #364 "folder"
+                 #365 div.lines
+                   #366 div.primary
+                     #367 "Music"
+                   #368 div.secondary
+                     #369 "1 item"
+                 #370 div.icon.chev
+                   #371 "chevron_right"
+               #372 button.frow [data-k="d:Pictures"]
+                 #373 span.icon.fill.fold
+                   #374 "folder"
+                 #375 div.lines
+                   #376 div.primary
+                     #377 "Pictures"
+                   #378 div.secondary
+                     #379 "1 item"
+                 #380 div.icon.chev
+                   #381 "chevron_right"
+         #47 div.folderpart.hidden
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #317 "Documents"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #318 div.crumb
+               #319 "Internal storage"
+             #320 div.icon
+               #321 "chevron_right"
+             #322 div.crumb.at
+               #323 "Documents"
+           #57 div.rows
+             #324 button.frow [data-k="f:Documents/list.txt"]
+               #325 div.fthumb [style="background: #f5b82e"]
+                 #326 span.icon.fill
+                   #327 "description"
+               #328 div.lines
+                 #329 div.primary
+                   #330 "list.txt"
+                 #331 div.secondary
+                   #332 "20 B"
+             #333 button.frow [data-k="f:Documents/readme.txt"]
+               #334 div.fthumb [style="background: #f5b82e"]
+                 #335 span.icon.fill
+                   #336 "description"
+               #337 div.lines
+                 #338 div.primary
+                   #339 "readme.txt"
+                 #340 div.secondary
+                   #341 "36 B"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 11  (clicks fed to guest: []) ---
-   [tap] #25
-   [page] 32 nodes
+   [tap] #34
+   [page] 206 nodes
    #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #243 "Pictures"
-       #8 div.part
-         #9 div.group.rows
-           #244 div.none
-             #245 "Empty folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #240 "sky.png"
-         #22 div.secondary.size
-           #241 "107 B"
-         #23 div.text
-           #242 "No preview"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #342 button.frow [data-k="d:Documents"]
+                 #343 span.icon.fill.fold
+                   #344 "folder"
+                 #345 div.lines
+                   #346 div.primary
+                     #347 "Documents"
+                   #348 div.secondary
+                     #349 "2 items"
+                 #350 div.icon.chev
+                   #351 "chevron_right"
+               #352 button.frow [data-k="d:Download"]
+                 #353 span.icon.fill.fold
+                   #354 "folder"
+                 #355 div.lines
+                   #356 div.primary
+                     #357 "Download"
+                   #358 div.secondary
+                     #359 "1 item"
+                 #360 div.icon.chev
+                   #361 "chevron_right"
+               #362 button.frow [data-k="d:Music"]
+                 #363 span.icon.fill.fold
+                   #364 "folder"
+                 #365 div.lines
+                   #366 div.primary
+                     #367 "Music"
+                   #368 div.secondary
+                     #369 "1 item"
+                 #370 div.icon.chev
+                   #371 "chevron_right"
+               #372 button.frow [data-k="d:Pictures"]
+                 #373 span.icon.fill.fold
+                   #374 "folder"
+                 #375 div.lines
+                   #376 div.primary
+                     #377 "Pictures"
+                   #378 div.secondary
+                     #379 "1 item"
+                 #380 div.icon.chev
+                   #381 "chevron_right"
+         #47 div.folderpart
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #382 "Music"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #383 div.crumb
+               #384 "Internal storage"
+             #385 div.icon
+               #386 "chevron_right"
+             #387 div.crumb.at
+               #388 "Music"
+           #57 div.rows
+             #389 button.frow [data-k="f:Music/quiet.wav"]
+               #390 div.fthumb [style="background: #ef4b4b"]
+                 #391 span.icon.fill
+                   #392 "music_note"
+               #393 div.lines
+                 #394 div.primary
+                   #395 "quiet.wav"
+                 #396 div.secondary
+                   #397 "1.60 KB"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view.hidden
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #148 "readme.txt"
+             #67 div.vsize
+               #149 "36 B"
+             #68 img.whole.hidden
+             #69 div.text
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play.hidden [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
 
 --- frame 12  (clicks fed to guest: []) ---
-   [page] 32 nodes
+   [tap] #389
+   [page] 206 nodes
    #1 body [data-back="1"] {back}
-     #2 div.app {click input}
-       #3 div.head
-         #4 button.iconbtn.up [data-k="up"]
-           #5 span.icon
-             #6 "arrow_back"
-         #7 div.where
-           #243 "Pictures"
-       #8 div.part
-         #9 div.group.rows
-           #244 div.none
-             #245 "Empty folder"
-         #10 div.group
-           #11 div.row.new
-             #12 div.tile [style="background: #f2b01e"]
-               #13 span.icon.fill
-                 #14 "create_new_folder"
-             #15 input.field [placeholder="New folder"] value=""
-             #16 button.btn.primary.make [data-k="make"]
-               #17 "Make"
-         #18 button.btn.danger.drop [data-k="drop"]
-           #19 "Delete folder"
-       #20 div.view.hidden
-         #21 div.title
-           #240 "sky.png"
-         #22 div.secondary.size
-           #241 "107 B"
-         #23 div.text
-           #242 "No preview"
-         #24 div.bar
-           #25 button.btn.danger [data-k="delete"]
-             #26 "Delete"
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #342 button.frow [data-k="d:Documents"]
+                 #343 span.icon.fill.fold
+                   #344 "folder"
+                 #345 div.lines
+                   #346 div.primary
+                     #347 "Documents"
+                   #348 div.secondary
+                     #349 "2 items"
+                 #350 div.icon.chev
+                   #351 "chevron_right"
+               #352 button.frow [data-k="d:Download"]
+                 #353 span.icon.fill.fold
+                   #354 "folder"
+                 #355 div.lines
+                   #356 div.primary
+                     #357 "Download"
+                   #358 div.secondary
+                     #359 "1 item"
+                 #360 div.icon.chev
+                   #361 "chevron_right"
+               #362 button.frow [data-k="d:Music"]
+                 #363 span.icon.fill.fold
+                   #364 "folder"
+                 #365 div.lines
+                   #366 div.primary
+                     #367 "Music"
+                   #368 div.secondary
+                     #369 "1 item"
+                 #370 div.icon.chev
+                   #371 "chevron_right"
+               #372 button.frow [data-k="d:Pictures"]
+                 #373 span.icon.fill.fold
+                   #374 "folder"
+                 #375 div.lines
+                   #376 div.primary
+                     #377 "Pictures"
+                   #378 div.secondary
+                     #379 "1 item"
+                 #380 div.icon.chev
+                   #381 "chevron_right"
+         #47 div.folderpart.hidden
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #382 "Music"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #383 div.crumb
+               #384 "Internal storage"
+             #385 div.icon
+               #386 "chevron_right"
+             #387 div.crumb.at
+               #388 "Music"
+           #57 div.rows
+             #389 button.frow [data-k="f:Music/quiet.wav"]
+               #390 div.fthumb [style="background: #ef4b4b"]
+                 #391 span.icon.fill
+                   #392 "music_note"
+               #393 div.lines
+                 #394 div.primary
+                   #395 "quiet.wav"
+                 #396 div.secondary
+                   #397 "1.60 KB"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #398 "quiet.wav"
+             #67 div.vsize
+               #399 "1.60 KB"
+             #68 img.whole.hidden
+             #69 div.text.hidden
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
+
+--- frame 13  (clicks fed to guest: []) ---
+   [tap] #71
+   [page] 206 nodes
+   #1 body [data-back="1"] {back}
+     #2 div.app.tabbed {click input}
+       #3 div.content
+         #4 div.tabspage.hidden
+           #5 div.recentpart.hidden
+             #6 div.big
+               #7 "Recent"
+             #8 div.recentlist
+               #96 div.daybar
+                 #97 "Earlier  |  5 items"
+               #98 div.grid
+                 #99 button.item [data-k="f:Pictures/sky.png"]
+                   #100 div.thumb
+                     #101 img [src="0"]
+                   #102 div.iname
+                     #103 "sky.png"
+                   #104 div.isize
+                     #105 "107 B"
+                   #106 div.ifrom
+                     #107 "Pictures"
+                 #108 button.item [data-k="f:Documents/readme.txt"]
+                   #109 div.thumb [style="background: #f5b82e"]
+                     #110 span.icon.fill
+                       #111 "description"
+                   #112 div.iname
+                     #113 "readme.txt"
+                   #114 div.isize
+                     #115 "36 B"
+                   #116 div.ifrom
+                     #117 "Documents"
+                 #118 button.item [data-k="f:Music/quiet.wav"]
+                   #119 div.thumb [style="background: #ef4b4b"]
+                     #120 span.icon.fill
+                       #121 "music_note"
+                   #122 div.iname
+                     #123 "quiet.wav"
+                   #124 div.isize
+                     #125 "1.60 KB"
+                   #126 div.ifrom
+                     #127 "Music"
+                 #128 button.item [data-k="f:Download/note.txt"]
+                   #129 div.thumb [style="background: #f5b82e"]
+                     #130 span.icon.fill
+                       #131 "description"
+                   #132 div.iname
+                     #133 "note.txt"
+                   #134 div.isize
+                     #135 "11 B"
+                   #136 div.ifrom
+                     #137 "Download"
+                 #138 button.item [data-k="f:Documents/list.txt"]
+                   #139 div.thumb [style="background: #f5b82e"]
+                     #140 span.icon.fill
+                       #141 "description"
+                   #142 div.iname
+                     #143 "list.txt"
+                   #144 div.isize
+                     #145 "20 B"
+                   #146 div.ifrom
+                     #147 "Documents"
+           #9 div.browsepart
+             #10 div.big
+               #11 "Browse"
+             #12 div.section
+               #13 span
+                 #14 "Type"
+             #15 div.kinds
+               #16 button.kind [data-k="d:Documents"]
+                 #17 div.ksq [style="background: #f5b82e"]
+                   #18 span.icon.fill
+                     #19 "description"
+                 #20 span
+                   #21 "Docs"
+               #22 button.kind [data-k="d:Pictures"]
+                 #23 div.ksq [style="background: #7c6cf2"]
+                   #24 span.icon.fill
+                     #25 "image"
+                 #26 span
+                   #27 "Images"
+               #28 button.kind [data-k="d:Movies"]
+                 #29 div.ksq [style="background: #6e5bf0"]
+                   #30 span.icon.fill
+                     #31 "videocam"
+                 #32 span
+                   #33 "Videos"
+               #34 button.kind [data-k="d:Music"]
+                 #35 div.ksq [style="background: #ef4b4b"]
+                   #36 span.icon.fill
+                     #37 "music_note"
+                 #38 span
+                   #39 "Music"
+             #40 div.section
+               #41 span
+                 #42 "Internal storage"
+               #43 button.iconbtn [data-k="ask"]
+                 #44 span.icon
+                   #45 "create_new_folder"
+             #46 div.folderrows
+               #342 button.frow [data-k="d:Documents"]
+                 #343 span.icon.fill.fold
+                   #344 "folder"
+                 #345 div.lines
+                   #346 div.primary
+                     #347 "Documents"
+                   #348 div.secondary
+                     #349 "2 items"
+                 #350 div.icon.chev
+                   #351 "chevron_right"
+               #352 button.frow [data-k="d:Download"]
+                 #353 span.icon.fill.fold
+                   #354 "folder"
+                 #355 div.lines
+                   #356 div.primary
+                     #357 "Download"
+                   #358 div.secondary
+                     #359 "1 item"
+                 #360 div.icon.chev
+                   #361 "chevron_right"
+               #362 button.frow [data-k="d:Music"]
+                 #363 span.icon.fill.fold
+                   #364 "folder"
+                 #365 div.lines
+                   #366 div.primary
+                     #367 "Music"
+                   #368 div.secondary
+                     #369 "1 item"
+                 #370 div.icon.chev
+                   #371 "chevron_right"
+               #372 button.frow [data-k="d:Pictures"]
+                 #373 span.icon.fill.fold
+                   #374 "folder"
+                 #375 div.lines
+                   #376 div.primary
+                     #377 "Pictures"
+                   #378 div.secondary
+                     #379 "1 item"
+                 #380 div.icon.chev
+                   #381 "chevron_right"
+         #47 div.folderpart.hidden
+           #48 div.head
+             #49 button.iconbtn [data-k="up"]
+               #50 span.icon
+                 #51 "arrow_back"
+             #52 div.title.foldertitle
+               #382 "Music"
+             #53 button.iconbtn [data-k="ask"]
+               #54 span.icon
+                 #55 "create_new_folder"
+           #56 div.crumbs
+             #383 div.crumb
+               #384 "Internal storage"
+             #385 div.icon
+               #386 "chevron_right"
+             #387 div.crumb.at
+               #388 "Music"
+           #57 div.rows
+             #389 button.frow [data-k="f:Music/quiet.wav"]
+               #390 div.fthumb [style="background: #ef4b4b"]
+                 #391 span.icon.fill
+                   #392 "music_note"
+               #393 div.lines
+                 #394 div.primary
+                   #395 "quiet.wav"
+                 #396 div.secondary
+                   #397 "1.60 KB"
+           #58 button.btn.danger.drop.hidden [data-k="drop"]
+             #59 "Delete folder"
+         #60 div.view
+           #61 div.head
+             #62 button.iconbtn [data-k="up"]
+               #63 span.icon
+                 #64 "arrow_back"
+           #65 div.vbody
+             #66 div.vname
+               #400 "quiet.wav"
+             #67 div.vsize
+               #401 "1.60 KB"
+             #68 img.whole.hidden
+             #69 div.text.hidden
+               #150 "Arche phone\nShared files, in Arche.\n"
+             #70 div.vtools
+               #71 button.btn.primary.play [data-k="play"]
+                 #72 "Play"
+               #73 button.btn.danger [data-k="delete"]
+                 #74 "Delete"
+       #75 div.tabs.hidden
+         #76 button.tab.trecent [data-k="tab:0"]
+           #77 span.icon
+             #78 "schedule"
+           #79 span
+             #80 "Recent"
+         #81 button.tab.tbrowse.on [data-k="tab:1"]
+           #82 span.icon
+             #83 "folder"
+           #84 span
+             #85 "Browse"
+       #86 div.scrim.hidden [data-k="cancel"]
+       #87 div.sheet.hidden
+         #88 div.stitle
+           #89 "New folder"
+         #90 input.field [placeholder="Folder name"] value="Trips" (focused)
+         #91 div.buttons
+           #92 button.btn [data-k="cancel"]
+             #93 "Cancel"
+           #94 button.btn.primary [data-k="make"]
+             #95 "Create"
+   [call] arche:phone/audio@0.1.0#play("Music/quiet.wav")

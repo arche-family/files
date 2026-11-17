@@ -1,44 +1,107 @@
-/// Files, the Arche phone's, written in Arche, as Android's Files app is:
-/// the phone's shared files (Pictures, Music, Documents, Download), a
-/// folder at a time, its folders first, then its files with their sizes.
-/// A tap on a folder opens it, and ‹ goes up; a tap on a file shows it,
-/// its name, its size and, when it is text, the text, with Delete, and ‹
-/// goes back to its folder. A new folder is its name typed and Make; an empty folder can be
-/// deleted from inside it. An app of the page: its taps come as click
-/// events and its typing as input events.
+/// Files, the Arche phone's, written in Arche (arche-os T7, T12), as a
+/// phone's file manager is: two pages, tabs along the bottom. Recent: the
+/// shared files, the newest first, under the day each was made (a
+/// camera's names say when, IMG_20261110_104427.jpg), four across, each
+/// its thumbnail or its kind's icon, its name, its size and its folder.
+/// Browse: the kinds (Docs, Images, Videos, Music), each opening its
+/// folder, and the folders of the phone's storage with how many items
+/// each has; + makes a folder. A folder shows where it is (Internal
+/// storage › Pictures), its folders first, then its files, a picture's
+/// thumbnail by its name; an empty one can be deleted. A file opens: a
+/// picture fitted to the screen, a text's text, a song with Play; each
+/// with its size and Delete. The phone's Back, and the arrow at the top,
+/// go back one. An app of the page: its taps come as click events and its
+/// typing as input events.
 ///
 /// An app of the phone's world (arche:phone, wit/): it reads and changes
-/// the shared files through files (its manifest's needs: files).
+/// the shared files through files (its manifest's needs: files), and plays
+/// a song through audio.
 import alloc;
 import appkit;
+import audio;
 import core.utf8;
 import dom;
 import files;
 import host_api;
 import std;
 
-const SHEET: str = ".app { padding-bottom: 16px; } .head { justify-content: flex-start; gap: 4px; padding-left: 8px; } .up.hidden { display: none; } .where { font-size: 28px; color: var(--kit-text); padding: 0 8px; } .part { display: flex; flex-direction: column; padding-top: 8px; } .new { gap: 10px; } .new input { flex-grow: 1; } .make { padding: 9px 18px; font-size: 15px; } .drop { margin: 0 14px; } .view { display: flex; flex-direction: column; gap: 10px; padding: 8px 0 0; } .title { font-size: 22px; color: var(--kit-text); padding: 0 20px; } .size { padding: 0 20px; } .text { font-size: 15px; color: var(--kit-text); margin: 0 14px; padding: 14px; border-radius: 18px; background: var(--kit-card); } .bar { display: flex; flex-direction: row; justify-content: center; padding-top: 8px; } .hidden { display: none; }";
+const SHEET: str = ".count { font-size: 14px; color: var(--kit-muted); } .daybar { display: flex; flex-direction: row; gap: 10px; align-items: center; padding: 14px 24px 8px; font-size: 14px; color: var(--kit-accent); } .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px 6px; padding: 0 12px 8px; } button.item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 6px 0; border: 0; border-radius: 12px; background: transparent; color: var(--kit-text); min-width: 0; font-weight: 400; } .thumb { width: 64px; height: 64px; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #ffffff; background: var(--kit-line); } .thumb img { width: 64px; height: 64px; object-fit: cover; } .thumb .icon { font-size: 30px; } .iname { font-size: 13px; text-align: center; color: var(--kit-text); max-width: 82px; overflow: hidden; height: 34px; line-height: 17px; } .isize { font-size: 11px; color: var(--kit-muted); } .ifrom { font-size: 11px; color: var(--kit-muted); max-width: 82px; overflow: hidden; height: 14px; } .section { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 14px 16px 8px 32px; font-size: 14px; color: var(--kit-muted); } .section .iconbtn { color: var(--kit-muted); } .kinds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 0 16px 4px; } button.kind { display: flex; flex-direction: row; align-items: center; gap: 12px; height: 52px; padding: 0 14px; border: 0; border-radius: 16px; background: var(--kit-card); color: var(--kit-text); font-size: 16px; font-weight: 400; } .ksq { width: 30px; height: 30px; border-radius: 9px; display: flex; align-items: center; justify-content: center; color: #ffffff; } .ksq .icon { font-size: 20px; } button.frow { display: flex; flex-direction: row; align-items: center; gap: 14px; width: 100%; box-sizing: border-box; padding: 10px 16px 10px 20px; border: 0; border-radius: 0; background: transparent; text-align: left; color: var(--kit-text); font-weight: 400; } .fold { color: #f5b82e; font-size: 44px; flex-shrink: 0; } .fthumb { width: 44px; height: 44px; border-radius: 8px; overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #ffffff; } .fthumb img { width: 44px; height: 44px; object-fit: cover; } .fthumb .icon { font-size: 24px; } .frow .lines { gap: 3px; } .frow .primary { font-size: 16px; } .crumbs { display: flex; flex-direction: row; align-items: center; gap: 6px; padding: 0 16px 10px; } .crumb { padding: 6px 12px; border-radius: 14px; font-size: 13px; background: var(--kit-line); color: var(--kit-muted); } .crumb.at { background: #fdeccb; color: #c88a12; } .crumbs .icon { font-size: 18px; color: var(--kit-muted); } .head .title { flex-grow: 1; font-size: 20px; font-weight: 500; } .drop { margin: 16px; align-self: flex-start; } .view { display: flex; flex-direction: column; min-height: 100vh; } .vbody { display: flex; flex-direction: column; gap: 12px; padding: 0 0 16px; } .vname { font-size: 20px; color: var(--kit-text); padding: 0 24px; } .vsize { font-size: 14px; color: var(--kit-muted); padding: 0 24px; margin-top: -6px; } img.whole { width: 100%; } .text { font-size: 15px; color: var(--kit-text); margin: 0 16px; padding: 14px; border-radius: 18px; background: var(--kit-card); } .vtools { display: flex; flex-direction: row; gap: 10px; padding: 4px 16px; } .sheet { position: fixed; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; gap: 14px; padding: 22px 20px 20px; border-radius: 26px 26px 0 0; background: var(--kit-card); box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.16); } .sheet .stitle { font-size: 18px; font-weight: 500; color: var(--kit-text); } .sheet input { height: 48px; border-radius: 14px; border: 0; padding: 0 14px; background: var(--kit-ground); font-size: 16px; color: var(--kit-text); } .sheet .buttons { display: flex; flex-direction: row; justify-content: flex-end; gap: 10px; } .scrim { position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: rgba(0, 0, 0, 0.32); } .hidden { display: none; }";
 
 /// How much of a text file is shown.
 const SHOWN: usize = 4000;
+/// A thumbnail's side: the gallery's, so that one kept serves both.
+const THUMB: u32 = 256;
+/// A picture shown whole: the screen's longest side, at the most.
+const WHOLE: u32 = 1600;
+/// Thumbnails asked for in a frame, at the most.
+const PER_FRAME: u32 = 3;
+/// The recent files shown, at the most.
+const RECENT: usize = 64;
+/// The shell's number for no image.
+const NO_IMAGE: u32 = 0xFFFFFFFF;
+const NO_DAY: i64 = -1000000;
+const DAY_MS: i64 = 86400000;
+
+/// The pages: Recent and Browse, a folder, a file.
+const RECENT_PAGE: u32 = 0;
+const BROWSE: u32 = 1;
+
+/// A file of Recent's: its path, name, folder, size, day (NO_DAY when its
+/// name does not say) and the minute of it, and its thumbnail.
+type Recent = struct {
+    path: alloc.String,
+    name: alloc.String,
+    folder: alloc.String,
+    size: u64,
+    day: i64,
+    minute: i64,
+    thumb: u32,
+}
+
+/// A thumbnail asked for: the file's path, and the img it goes into.
+type Wanted = struct {
+    path: alloc.String,
+    img: u32,
+}
 
 type Files = struct {
-    /// The folder shown, "" for the top; the file shown in it, "" for none.
+    /// The tab: Recent or Browse; the folder shown, "" for the tab; the file
+    /// shown in it, "" for none.
+    tab: u32,
     path: alloc.String,
     file: alloc.String,
-    /// The new folder's name as typed.
+    /// The new folder's sheet up, and its name as typed.
+    asking: bool,
     typed: alloc.String,
+    /// The thumbnails known, by path, and those still to ask for.
+    known: alloc.List(Wanted),
+    wanted: alloc.List(Wanted),
+    /// The picture shown whole, its number used again.
+    whole: u32,
     /// The page's nodes.
-    up: u32,
-    place: u32,
+    tabs_page: u32,
+    recent_part: u32,
+    browse_part: u32,
+    recent_list: u32,
+    recent_count: u32,
+    folder_rows: u32,
+    folder_part: u32,
+    folder_title: u32,
+    crumbs: u32,
     rows: u32,
-    list_part: u32,
+    drop: u32,
     view: u32,
     view_name: u32,
     view_size: u32,
+    view_img: u32,
     view_text: u32,
+    play: u32,
+    tab_bar: u32,
+    tab_recent: u32,
+    tab_browse: u32,
+    sheet: u32,
+    scrim: u32,
     field: u32,
-    remove_folder: u32,
 }
 
 fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
@@ -46,40 +109,88 @@ fn init(host: &mut std.Host, a: alloc.Allocator) -> Files {
     _ = dom.add_stylesheet(host, css: kit.view());
     _ = dom.add_stylesheet(host, css: SHEET);
     let root = dom.root(host);
-    let markup = "<div class='app'><div class='head'><button class='iconbtn up' data-k='up'><span class='icon'>arrow_back</span></button><div class='where'></div></div><div class='part'><div class='group rows'></div><div class='group'><div class='row new'><div class='tile' style='background: #f2b01e'><span class='icon fill'>create_new_folder</span></div><input class='field' placeholder='New folder'><button class='btn primary make' data-k='make'>Make</button></div></div><button class='btn danger drop' data-k='drop'>Delete folder</button></div><div class='view hidden'><div class='title'></div><div class='secondary size'></div><div class='text'></div><div class='bar'><button class='btn danger' data-k='delete'>Delete</button></div></div></div>";
+    var m = alloc.String.from("<div class='app tabbed'><div class='content'>", a);
+    // The tabs' pages.
+    m.push_str("<div class='tabspage'><div class='recentpart'><div class='big'>Recent</div><div class='recentlist'></div></div><div class='browsepart hidden'><div class='big'>Browse</div><div class='section'><span>Type</span></div><div class='kinds'>");
+    kind(&mut m, key: "Documents", name: "Docs", glyph: "description", color: "#f5b82e");
+    kind(&mut m, key: "Pictures", name: "Images", glyph: "image", color: "#7c6cf2");
+    kind(&mut m, key: "Movies", name: "Videos", glyph: "videocam", color: "#6e5bf0");
+    kind(&mut m, key: "Music", name: "Music", glyph: "music_note", color: "#ef4b4b");
+    m.push_str("</div><div class='section'><span>Internal storage</span><button class='iconbtn' data-k='ask'><span class='icon'>create_new_folder</span></button></div><div class='folderrows'></div></div></div>");
+    // A folder.
+    m.push_str("<div class='folderpart hidden'><div class='head'><button class='iconbtn' data-k='up'><span class='icon'>arrow_back</span></button><div class='title foldertitle'></div><button class='iconbtn' data-k='ask'><span class='icon'>create_new_folder</span></button></div><div class='crumbs'></div><div class='rows'></div><button class='btn danger drop' data-k='drop'>Delete folder</button></div>");
+    // A file.
+    m.push_str("<div class='view hidden'><div class='head'><button class='iconbtn' data-k='up'><span class='icon'>arrow_back</span></button></div><div class='vbody'><div class='vname'></div><div class='vsize'></div><img class='whole hidden'><div class='text hidden'></div><div class='vtools'><button class='btn primary play hidden' data-k='play'>Play</button><button class='btn danger' data-k='delete'>Delete</button></div></div></div>");
+    m.push_str("</div><div class='tabs'><button class='tab on trecent' data-k='tab:0'><span class='icon'>schedule</span><span>Recent</span></button><button class='tab tbrowse' data-k='tab:1'><span class='icon'>folder</span><span>Browse</span></button></div>");
+    // The new folder's sheet, over a scrim.
+    m.push_str("<div class='scrim hidden' data-k='cancel'></div><div class='sheet hidden'><div class='stitle'>New folder</div><input class='field' placeholder='Folder name'><div class='buttons'><button class='btn' data-k='cancel'>Cancel</button><button class='btn primary' data-k='make'>Create</button></div></div></div>");
     var why = alloc.String.init(a);
-    if not dom.set_markup(host, item: root, markup: markup, why: &mut why, a: a) {
+    if not dom.set_markup(host, item: root, markup: m.view(), why: &mut why, a: a) {
         host_api.log(host, msg: why.view());
     }
     let app = first(host, selector: ".app", a: a);
     dom.listen(host, item: app, kind: "click");
-    dom.listen(host, item: dom.root(host), kind: "back");
     dom.listen(host, item: app, kind: "input");
+    dom.listen(host, item: root, kind: "back");
     var state = Files {
+        tab: RECENT_PAGE,
         path: alloc.String.init(a),
         file: alloc.String.init(a),
+        asking: false,
         typed: alloc.String.init(a),
-        up: first(host, selector: ".up", a: a),
-        place: first(host, selector: ".where", a: a),
+        known: alloc.List(Wanted).init(a),
+        wanted: alloc.List(Wanted).init(a),
+        whole: NO_IMAGE,
+        tabs_page: first(host, selector: ".tabspage", a: a),
+        recent_part: first(host, selector: ".recentpart", a: a),
+        browse_part: first(host, selector: ".browsepart", a: a),
+        recent_list: first(host, selector: ".recentlist", a: a),
+        recent_count: 0,
+        folder_rows: first(host, selector: ".folderrows", a: a),
+        folder_part: first(host, selector: ".folderpart", a: a),
+        folder_title: first(host, selector: ".foldertitle", a: a),
+        crumbs: first(host, selector: ".crumbs", a: a),
         rows: first(host, selector: ".rows", a: a),
-        list_part: first(host, selector: ".part", a: a),
+        drop: first(host, selector: ".drop", a: a),
         view: first(host, selector: ".view", a: a),
-        view_name: first(host, selector: ".title", a: a),
-        view_size: first(host, selector: ".size", a: a),
+        view_name: first(host, selector: ".vname", a: a),
+        view_size: first(host, selector: ".vsize", a: a),
+        view_img: first(host, selector: ".whole", a: a),
         view_text: first(host, selector: ".text", a: a),
+        play: first(host, selector: ".play", a: a),
+        tab_bar: first(host, selector: ".tabs", a: a),
+        tab_recent: first(host, selector: ".trecent", a: a),
+        tab_browse: first(host, selector: ".tbrowse", a: a),
+        sheet: first(host, selector: ".sheet", a: a),
+        scrim: first(host, selector: ".scrim", a: a),
         field: first(host, selector: ".field", a: a),
-        remove_folder: first(host, selector: ".drop", a: a),
     };
     show(&mut state, host: host, a: a);
     return state;
+}
+
+/// A kind's tile: its icon on its color, its name; a tap opens its folder.
+fn kind(out: &mut alloc.String, key: str, name: str, glyph: str, color: str) {
+    out.push_str("<button class='kind' data-k='d:");
+    out.push_str(key);
+    out.push_str("'><div class='ksq' style='background: ");
+    out.push_str(color);
+    out.push_str("'><span class='icon fill'>");
+    out.push_str(glyph);
+    out.push_str("</span></div><span>");
+    out.push_str(name);
+    out.push_str("</span></button>");
 }
 
 fn update(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     var changed = false;
     for e in dom.events(host, a: a).items() {
         if e.kind.view().eq("back") {
-            // The phone's Back, in a folder or a file: the one back.
-            press(state, host: host, key: "up", a: a);
+            if state.asking {
+                press(state, host: host, key: "cancel", a: a);
+            } else {
+                press(state, host: host, key: "up", a: a);
+            }
             changed = true;
         } else if e.kind.view().eq("click") {
             match key_of(host, n: e.target, a: a) {
@@ -96,6 +207,7 @@ fn update(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
     if changed {
         show(state, host: host, a: a);
     }
+    thumbs(state, host: host, a: a);
 }
 
 /// path and name joined by "/"; name alone at the top.
@@ -110,11 +222,15 @@ fn joined(path: str, name: str, a: alloc.Allocator) -> alloc.String {
 }
 
 fn press(state: &mut Files, host: &mut std.Host, key: str, a: alloc.Allocator) {
-    if key.eq("up") and state.file.len() > 0 {
+    if key.starts_with("tab:") {
+        state.tab = number(key[4..key.len()]) as u32;
+        state.path = alloc.String.init(a);
+        state.file = alloc.String.init(a);
+    } else if key.eq("up") and state.file.len() > 0 {
         // Back from a file: its folder, as it was.
         state.file = alloc.String.init(a);
     } else if key.eq("up") {
-        // Up: the folder this one is in.
+        // Up: the folder this one is in, or the tab.
         let b = state.path.view().bytes();
         var cut = b.len();
         while cut > 0 and b[cut - 1] != '/' {
@@ -124,21 +240,39 @@ fn press(state: &mut Files, host: &mut std.Host, key: str, a: alloc.Allocator) {
             cut -= 1;
         }
         state.path = alloc.String.from(state.path.view()[0..cut], a);
-        state.file = alloc.String.init(a);
     } else if key.starts_with("d:") {
-        state.path = joined(path: state.path.view(), name: key[2..key.len()], a: a);
+        state.path = alloc.String.from(key[2..key.len()], a);
+        state.file = alloc.String.init(a);
     } else if key.starts_with("f:") {
-        state.file = alloc.String.from(key[2..key.len()], a);
+        // A file by its path: its folder, then it.
+        let p = key[2..key.len()];
+        var cut = p.len();
+        while cut > 0 and p.bytes()[cut - 1] != '/' {
+            cut -= 1;
+        }
+        if cut > 0 {
+            state.path = alloc.String.from(p[0..cut - 1], a);
+        }
+        state.file = alloc.String.from(p[cut..p.len()], a);
     } else if key.eq("delete") {
         let p = joined(path: state.path.view(), name: state.file.view(), a: a);
         _ = files.remove(host, path: p.view());
         state.file = alloc.String.init(a);
+    } else if key.eq("play") {
+        let p = joined(path: state.path.view(), name: state.file.view(), a: a);
+        _ = audio.play(host, path: p.view());
+    } else if key.eq("ask") {
+        state.asking = true;
+        state.typed = alloc.String.init(a);
+        dom.set_attribute(host, item: state.field, name: "value", value_: "");
+        dom.focus(host, item: state.field);
+    } else if key.eq("cancel") {
+        state.asking = false;
     } else if key.eq("make") {
         if state.typed.len() > 0 and good_name(state.typed.view()) {
             let p = joined(path: state.path.view(), name: state.typed.view(), a: a);
             _ = files.make_folder(host, path: p.view());
-            state.typed = alloc.String.init(a);
-            dom.set_attribute(host, item: state.field, name: "value", value_: "");
+            state.asking = false;
         }
     } else if key.eq("drop") {
         if state.path.len() > 0 and files.remove(host, path: state.path.view()) {
@@ -150,7 +284,7 @@ fn press(state: &mut Files, host: &mut std.Host, key: str, a: alloc.Allocator) {
 /// Whether name is one a folder may have: not empty, ".", or "..", and
 /// without a "/".
 fn good_name(name: str) -> bool {
-    if name.eq(".") or name.eq("..") {
+    if name.eq(".") or name.eq("..") or name.starts_with(".") {
         return false;
     }
     for c in name.bytes() {
@@ -161,7 +295,7 @@ fn good_name(name: str) -> bool {
     return true;
 }
 
-/// A size as people read it: bytes, KB or MB, a decimal place.
+/// A size as people read it: bytes, KB or MB, a decimal place or two.
 fn size_text(out: &mut alloc.String, n: u64) {
     if n < 1024 {
         out.push_u64(n);
@@ -170,89 +304,21 @@ fn size_text(out: &mut alloc.String, n: u64) {
     }
     var unit: u64 = 1024;
     var name = " KB";
-    if n >= 1024 * 1024 {
+    if n >= 1024 * 1024 * 1024 {
+        unit = 1024 * 1024 * 1024;
+        name = " GB";
+    } else if n >= 1024 * 1024 {
         unit = 1024 * 1024;
         name = " MB";
     }
-    let tenths = n * 10 / unit;
-    out.push_u64(tenths / 10);
+    let hundredths = n * 100 / unit;
+    out.push_u64(hundredths / 100);
     out.push_str(".");
-    out.push_u64(tenths % 10);
+    if hundredths % 100 < 10 {
+        out.push_str("0");
+    }
+    out.push_u64(hundredths % 100);
     out.push_str(name);
-}
-
-/// The page as it is: the folder's rows, or the file shown.
-fn show(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
-    if state.path.len() == 0 {
-        dom.set_text(host, item: state.place, text: "Files");
-    } else {
-        dom.set_text(host, item: state.place, text: state.path.view());
-    }
-    // ‹, the one back: from a file to its folder, from a folder up; the
-    // phone's Back the same (data-back).
-    let top = state.path.len() == 0 and state.file.len() == 0;
-    dom.toggle_class(host, item: state.up, name: "hidden", on: top);
-    if top {
-        dom.remove_attribute(host, item: dom.root(host), name: "data-back");
-    } else {
-        dom.set_attribute(host, item: dom.root(host), name: "data-back", value_: "1");
-    }
-    if state.file.len() > 0 {
-        show_file(state, host: host, a: a);
-        return;
-    }
-    dom.toggle_class(host, item: state.view, name: "hidden", on: true);
-    dom.toggle_class(host, item: state.list_part, name: "hidden", on: false);
-    for old in dom.children(host, item: state.rows, a: a).items() {
-        dom.release(host, item: old.*);
-    }
-    let all = files.list(host, path: state.path.view(), a: a);
-    if all.len() == 0 {
-        line(host, parent_: state.rows, class: "none", text: "Empty folder", a: a);
-    }
-    // Folders first, then files, each in order of their names.
-    var pass: u32 = 0;
-    while pass < 2 : (pass += 1) {
-        for e in all.items() {
-            if e.folder != (pass == 0) {
-                continue;
-            }
-            // A button, its ripple as a tap's, as Android's rows have.
-            let row = dom.create_element(host, tag: "button");
-            dom.set_attribute(host, item: row, name: "class", value_: "row");
-            var k = alloc.String.init(a);
-            var what = alloc.String.init(a);
-            if e.folder {
-                k.push_str("d:");
-                what.push_str("Folder");
-            } else {
-                k.push_str("f:");
-                size_text(&mut what, n: e.size);
-            }
-            k.push_str(e.name.view());
-            dom.set_attribute(host, item: row, name: "data-k", value_: k.view());
-            // Its icon on a tile of its kind's color, its name over what
-            // it is, and a chevron.
-            let tile = dom.create_element(host, tag: "div");
-            dom.set_attribute(host, item: tile, name: "class", value_: "tile");
-            var style = alloc.String.from("background: ", a);
-            style.push_str(tint_of(e.name.view(), folder: e.folder));
-            dom.set_attribute(host, item: tile, name: "style", value_: style.view());
-            let glyph = dom.create_element(host, tag: "span");
-            dom.set_attribute(host, item: glyph, name: "class", value_: "icon fill");
-            dom.set_text(host, item: glyph, text: icon_of(e.name.view(), folder: e.folder));
-            dom.append_child(host, parent_: tile, child: glyph);
-            dom.append_child(host, parent_: row, child: tile);
-            let lines = dom.create_element(host, tag: "div");
-            dom.set_attribute(host, item: lines, name: "class", value_: "lines");
-            line(host, parent_: lines, class: "primary name", text: e.name.view(), a: a);
-            line(host, parent_: lines, class: "secondary what", text: what.view(), a: a);
-            dom.append_child(host, parent_: row, child: lines);
-            dom.append_child(host, parent_: state.rows, child: row);
-        }
-    }
-    // An empty folder, not one of the top's, can be deleted.
-    dom.toggle_class(host, item: state.remove_folder, name: "hidden", on: state.path.len() == 0 or all.len() > 0);
 }
 
 /// Whether name ends with one of tails, given as ".a.b.c", its case aside.
@@ -284,77 +350,562 @@ fn kind_is(name: str, tails: str) -> bool {
     return false;
 }
 
-/// A row's icon, by what it is: a folder, a picture, a video, a song, a
-/// text, or another file.
-fn icon_of(name: str, folder: bool) -> str {
-    if folder {
-        return "folder";
-    }
+fn is_picture(name: str) -> bool {
+    return kind_is(name: name, tails: ".png.jpg.jpeg");
+}
+
+fn is_song(name: str) -> bool {
+    return kind_is(name: name, tails: ".wav.mp3.ogg.flac.m4a");
+}
+
+/// A file's icon, by what it is: a picture, a video, a song, a text, or
+/// another file.
+fn icon_of(name: str) -> str {
     if kind_is(name: name, tails: ".png.jpg.jpeg.gif.webp") {
         return "image";
     }
-    if kind_is(name: name, tails: ".avi.mp4.mkv.webm") {
+    if kind_is(name: name, tails: ".avi.mp4.m4v.mov.mkv.webm") {
         return "movie";
     }
-    if kind_is(name: name, tails: ".wav.mp3.ogg.flac") {
-        return "audio_file";
+    if is_song(name) {
+        return "music_note";
     }
-    if kind_is(name: name, tails: ".txt.md.csv.json") {
+    if kind_is(name: name, tails: ".txt.md.csv.json.pdf") {
         return "description";
     }
     return "draft";
 }
 
-/// The color of a row's tile, by what it is, as icon_of.
-fn tint_of(name: str, folder: bool) -> str {
-    if folder {
-        return "#f2b01e";
-    }
+/// The color of a file's tile, by what it is, as icon_of.
+fn tint_of(name: str) -> str {
     if kind_is(name: name, tails: ".png.jpg.jpeg.gif.webp") {
-        return "#2f80ed";
+        return "#7c6cf2";
     }
-    if kind_is(name: name, tails: ".avi.mp4.mkv.webm") {
-        return "#eb5757";
+    if kind_is(name: name, tails: ".avi.mp4.m4v.mov.mkv.webm") {
+        return "#3a3a42";
     }
-    if kind_is(name: name, tails: ".wav.mp3.ogg.flac") {
-        return "#f0476a";
+    if is_song(name) {
+        return "#ef4b4b";
     }
-    if kind_is(name: name, tails: ".txt.md.csv.json") {
-        return "#8e5cf7";
+    if kind_is(name: name, tails: ".txt.md.csv.json.pdf") {
+        return "#f5b82e";
     }
     return "#8a8a8e";
 }
 
-/// The file shown: its name, size and, when it is text, the text.
-fn show_file(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
-    dom.toggle_class(host, item: state.list_part, name: "hidden", on: true);
-    dom.toggle_class(host, item: state.view, name: "hidden", on: false);
-    dom.set_text(host, item: state.view_name, text: state.file.view());
-    let p = joined(path: state.path.view(), name: state.file.view(), a: a);
-    match files.read(host, path: p.view(), a: a) {
-        some(bytes) => {
-            var size = alloc.String.init(a);
-            size_text(&mut size, n: bytes.len() as u64);
-            dom.set_text(host, item: state.view_size, text: size.view());
-            var n = bytes.len();
-            if n > SHOWN {
-                n = SHOWN;
+/// The number the digits of s from at, n of them, make; -1 when one is no
+/// digit.
+fn digits(s: str, at: usize, n: usize) -> i64 {
+    if at + n > s.len() {
+        return -1;
+    }
+    var v: i64 = 0;
+    var i: usize = 0;
+    while i < n : (i += 1) {
+        let c = s.bytes()[at + i];
+        if c < '0' or c > '9' {
+            return -1;
+        }
+        v = v * 10 + (c - '0') as i64;
+    }
+    return v;
+}
+
+/// The day y-m-d, in days since 1970 (Howard Hinnant's days_from_civil).
+fn days_of(y: i64, m: i64, d: i64) -> i64 {
+    var yy = y;
+    if m <= 2 {
+        yy -= 1;
+    }
+    let era = yy / 400;
+    let yoe = yy - era * 400;
+    var mp = m - 3;
+    if m <= 2 {
+        mp = m + 9;
+    }
+    let doy = (153 * mp + 2) / 5 + d - 1;
+    let doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
+    return era * 146097 + doe - 719468;
+}
+
+/// When a camera's name says it was made, YYYYMMDD_HHMMSS after a prefix
+/// and a _: the day, and the minute of it.
+fn made(name: str) -> [2]i64 {
+    var at: usize = 0;
+    while at < name.len() and at < 12 and name.bytes()[at] != '_' {
+        at += 1;
+    }
+    if at >= name.len() or name.bytes()[at] != '_' {
+        return [NO_DAY, 0];
+    }
+    let y = digits(name, at: at + 1, n: 4);
+    let m = digits(name, at: at + 5, n: 2);
+    let d = digits(name, at: at + 7, n: 2);
+    if y < 1970 or m < 1 or m > 12 or d < 1 or d > 31 {
+        return [NO_DAY, 0];
+    }
+    var minute: i64 = 0;
+    let h = digits(name, at: at + 10, n: 2);
+    let mi = digits(name, at: at + 12, n: 2);
+    if h >= 0 and mi >= 0 {
+        minute = h * 60 + mi;
+    }
+    return [days_of(y: y, m: m, d: d), minute];
+}
+
+/// The day the user is in.
+fn today(host: &mut std.Host) -> i64 {
+    let ms = host_api.now_millis(host) + host_api.utc_offset(host) as i64 * 60000;
+    var d = ms / DAY_MS;
+    if ms % DAY_MS != 0 and ms < 0 {
+        d -= 1;
+    }
+    return d;
+}
+
+/// A day as a file manager says it: Today, Yesterday, else its date.
+fn day_said(day: i64, now: i64, out: &mut alloc.String) {
+    if day == NO_DAY {
+        out.push_str("Earlier");
+    } else if day == now {
+        out.push_str("Today");
+    } else if day == now - 1 {
+        out.push_str("Yesterday");
+    } else {
+        // Its date, as the month's three letters and the day.
+        let z = day + 719468;
+        let era = z / 146097;
+        let doe = z - era * 146097;
+        let yoe = (doe - doe / 1460 + doe / 36524 - doe / 146096) / 365;
+        let doy = doe - (365 * yoe + yoe / 4 - yoe / 100);
+        let mp = (5 * doy + 2) / 153;
+        let d = doy - (153 * mp + 2) / 5 + 1;
+        var m = mp + 3;
+        if mp >= 10 {
+            m = mp - 9;
+        }
+        let names = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec";
+        let at = ((m - 1) * 4) as usize;
+        out.push_str(names[at..at + 3]);
+        out.push_str(" ");
+        out.push_u64(d as u64);
+    }
+}
+
+/// The top's folders, and those in them, a level down: the files of each
+/// onto into.
+fn gather(host: &mut std.Host, path: str, depth: u32, into: &mut alloc.List(Recent), a: alloc.Allocator) {
+    for e in files.list(host, path: path, a: a).items() {
+        let n = e.name.view();
+        if n.starts_with(".") {
+            continue;
+        }
+        let p = joined(path: path, name: n, a: a);
+        if e.folder {
+            if depth < 2 {
+                gather(host, path: p.view(), depth: depth + 1, into: into, a: a);
             }
-            // Cut at a whole character.
-            while n > 0 and n < bytes.len() and (bytes.items()[n] & 0xC0) == 0x80 {
-                n -= 1;
+            continue;
+        }
+        if depth == 0 {
+            continue;
+        }
+        var folder = path;
+        var cut = path.len();
+        while cut > 0 and path.bytes()[cut - 1] != '/' {
+            cut -= 1;
+        }
+        folder = path[cut..path.len()];
+        let when = made(n);
+        into.push(Recent { path: p, name: alloc.String.from(n, a), folder: alloc.String.from(folder, a), size: e.size, day: when[0], minute: when[1], thumb: NO_IMAGE });
+    }
+}
+
+/// Whether x is newer than y: by its day and minute, then its name.
+fn newer(x: &Recent, y: &Recent) -> bool {
+    if x.day != y.day {
+        return x.day > y.day;
+    }
+    if x.minute != y.minute {
+        return x.minute > y.minute;
+    }
+    let xb = x.name.view().bytes();
+    let yb = y.name.view().bytes();
+    var i: usize = 0;
+    while i < xb.len() and i < yb.len() : (i += 1) {
+        if xb[i] != yb[i] {
+            return xb[i] > yb[i];
+        }
+    }
+    return xb.len() > yb.len();
+}
+
+/// The page as it is: a tab's, a folder, or a file; and the new folder's
+/// sheet.
+fn show(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    let in_tab = state.path.len() == 0 and state.file.len() == 0;
+    dom.toggle_class(host, item: state.tabs_page, name: "hidden", on: not in_tab);
+    dom.toggle_class(host, item: state.tab_bar, name: "hidden", on: not in_tab);
+    dom.toggle_class(host, item: state.folder_part, name: "hidden", on: in_tab or state.file.len() > 0);
+    dom.toggle_class(host, item: state.view, name: "hidden", on: state.file.len() == 0);
+    dom.toggle_class(host, item: state.sheet, name: "hidden", on: not state.asking);
+    dom.toggle_class(host, item: state.scrim, name: "hidden", on: not state.asking);
+    // Off the tabs, the phone's Back is the page's (data-back).
+    if in_tab and not state.asking {
+        dom.remove_attribute(host, item: dom.root(host), name: "data-back");
+    } else {
+        dom.set_attribute(host, item: dom.root(host), name: "data-back", value_: "1");
+    }
+    if state.file.len() > 0 {
+        show_file(state, host: host, a: a);
+    } else if not in_tab {
+        show_folder(state, host: host, a: a);
+    } else if state.tab == BROWSE {
+        dom.toggle_class(host, item: state.recent_part, name: "hidden", on: true);
+        dom.toggle_class(host, item: state.browse_part, name: "hidden", on: false);
+        dom.toggle_class(host, item: state.tab_recent, name: "on", on: false);
+        dom.toggle_class(host, item: state.tab_browse, name: "on", on: true);
+        show_browse(state, host: host, a: a);
+    } else {
+        dom.toggle_class(host, item: state.recent_part, name: "hidden", on: false);
+        dom.toggle_class(host, item: state.browse_part, name: "hidden", on: true);
+        dom.toggle_class(host, item: state.tab_recent, name: "on", on: true);
+        dom.toggle_class(host, item: state.tab_browse, name: "on", on: false);
+        show_recent(state, host: host, a: a);
+    }
+}
+
+/// The thumbnail of path into img: a known one at once, else asked for
+/// later (thumbs), a few a frame.
+fn thumb_into(state: &mut Files, host: &mut std.Host, img: u32, path: str, a: alloc.Allocator) {
+    for k in state.known.items() {
+        if k.path.view().eq(path) {
+            var src = alloc.String.init(a);
+            src.push_u64(k.img as u64);
+            dom.set_attribute(host, item: img, name: "src", value_: src.view());
+            return;
+        }
+    }
+    state.wanted.push(Wanted { path: alloc.String.from(path, a), img: img });
+}
+
+/// The thumbnails asked for, PER_FRAME of them a frame; a frame after this
+/// while some are left.
+fn thumbs(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    var made_now: u32 = 0;
+    while state.wanted.len() > 0 and made_now < PER_FRAME {
+        let w_path = alloc.String.from(state.wanted.items()[0].path.view(), a);
+        let w_img = state.wanted.items()[0].img;
+        var rest = alloc.List(Wanted).init(a);
+        var k: usize = 1;
+        while k < state.wanted.len() : (k += 1) {
+            let x = &state.wanted.items()[k];
+            rest.push(Wanted { path: alloc.String.from(x.path.view(), a), img: x.img });
+        }
+        state.wanted = rest;
+        var have = NO_IMAGE;
+        for kn in state.known.items() {
+            if kn.path.view().eq(w_path.view()) {
+                have = kn.img;
             }
-            let shown = bytes.items()[0..n];
-            if text_like(shown) {
-                dom.set_text(host, item: state.view_text, text: utf8.as_str(shown));
+        }
+        if have == NO_IMAGE {
+            made_now += 1;
+            have = files.image(host, path: w_path.view(), max: THUMB, into: NO_IMAGE) orelse NO_IMAGE;
+            state.known.push(Wanted { path: alloc.String.from(w_path.view(), a), img: have });
+        }
+        if have != NO_IMAGE {
+            var src = alloc.String.init(a);
+            src.push_u64(have as u64);
+            dom.set_attribute(host, item: w_img, name: "src", value_: src.view());
+        }
+    }
+    if state.wanted.len() > 0 {
+        host_api.request_frame(host, after_ms: 16);
+    }
+}
+
+/// A tile into box for name at path: its thumbnail when it is a picture,
+/// else its kind's icon on its color.
+fn tile_into(state: &mut Files, host: &mut std.Host, box: u32, name: str, path: str, a: alloc.Allocator) {
+    if is_picture(name) {
+        let img = dom.create_element(host, tag: "img");
+        dom.append_child(host, parent_: box, child: img);
+        thumb_into(state, host: host, img: img, path: path, a: a);
+        return;
+    }
+    var style = alloc.String.from("background: ", a);
+    style.push_str(tint_of(name));
+    dom.set_attribute(host, item: box, name: "style", value_: style.view());
+    let glyph = dom.create_element(host, tag: "span");
+    dom.set_attribute(host, item: glyph, name: "class", value_: "icon fill");
+    dom.set_text(host, item: glyph, text: icon_of(name));
+    dom.append_child(host, parent_: box, child: glyph);
+}
+
+/// Recent: the files, the newest first, under their days, four across.
+fn show_recent(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    for old in dom.children(host, item: state.recent_list, a: a).items() {
+        dom.release(host, item: old.*);
+    }
+    var all = alloc.List(Recent).init(a);
+    gather(host, path: "", depth: 0, into: &mut all, a: a);
+    var order = alloc.List(usize).init(a);
+    var j: usize = 0;
+    while j < all.len() : (j += 1) {
+        order.push(j);
+        var at = order.len() - 1;
+        while at > 0 and newer(x: &all.items()[order.items()[at]], y: &all.items()[order.items()[at - 1]]) {
+            let t = order.items()[at];
+            let u = order.items()[at - 1];
+            order.items_mut()[at] = u;
+            order.items_mut()[at - 1] = t;
+            at -= 1;
+        }
+    }
+    if order.len() == 0 {
+        let nothing = dom.create_element(host, tag: "div");
+        dom.set_attribute(host, item: nothing, name: "class", value_: "empty");
+        line(host, parent_: nothing, class: "icon", text: "folder_open", a: a);
+        line(host, parent_: nothing, class: "", text: "No files yet", a: a);
+        dom.append_child(host, parent_: state.recent_list, child: nothing);
+        return;
+    }
+    let now = today(host);
+    var shown: usize = 0;
+    var k: usize = 0;
+    while k < order.len() and shown < RECENT {
+        // A day's files: their count by its name, then their grid.
+        let day = all.items()[order.items()[k]].day;
+        var end = k;
+        while end < order.len() and all.items()[order.items()[end]].day == day {
+            end += 1;
+        }
+        let bar = dom.create_element(host, tag: "div");
+        dom.set_attribute(host, item: bar, name: "class", value_: "daybar");
+        var said = alloc.String.init(a);
+        day_said(day: day, now: now, out: &mut said);
+        said.push_str("  |  ");
+        said.push_u64((end - k) as u64);
+        if end - k == 1 {
+            said.push_str(" item");
+        } else {
+            said.push_str(" items");
+        }
+        dom.set_text(host, item: bar, text: said.view());
+        dom.append_child(host, parent_: state.recent_list, child: bar);
+        let grid = dom.create_element(host, tag: "div");
+        dom.set_attribute(host, item: grid, name: "class", value_: "grid");
+        dom.append_child(host, parent_: state.recent_list, child: grid);
+        while k < end and shown < RECENT {
+            let r = &all.items()[order.items()[k]];
+            let item = dom.create_element(host, tag: "button");
+            dom.set_attribute(host, item: item, name: "class", value_: "item");
+            var key = alloc.String.from("f:", a);
+            key.push_str(r.path.view());
+            dom.set_attribute(host, item: item, name: "data-k", value_: key.view());
+            let box = dom.create_element(host, tag: "div");
+            dom.set_attribute(host, item: box, name: "class", value_: "thumb");
+            dom.append_child(host, parent_: item, child: box);
+            let path = alloc.String.from(r.path.view(), a);
+            let name = alloc.String.from(r.name.view(), a);
+            let folder = alloc.String.from(r.folder.view(), a);
+            let size = r.size;
+            tile_into(state, host: host, box: box, name: name.view(), path: path.view(), a: a);
+            line(host, parent_: item, class: "iname", text: name.view(), a: a);
+            var sz = alloc.String.init(a);
+            size_text(&mut sz, n: size);
+            line(host, parent_: item, class: "isize", text: sz.view(), a: a);
+            line(host, parent_: item, class: "ifrom", text: folder.view(), a: a);
+            dom.append_child(host, parent_: grid, child: item);
+            shown += 1;
+            k += 1;
+        }
+        k = end;
+    }
+}
+
+/// How many items a folder has, its hidden ones aside.
+fn items_in(host: &mut std.Host, path: str, a: alloc.Allocator) -> u64 {
+    var n: u64 = 0;
+    for e in files.list(host, path: path, a: a).items() {
+        if not e.name.view().starts_with(".") {
+            n += 1;
+        }
+    }
+    return n;
+}
+
+/// "13 items", "1 item".
+fn items_said(n: u64, out: &mut alloc.String) {
+    out.push_u64(n);
+    if n == 1 {
+        out.push_str(" item");
+    } else {
+        out.push_str(" items");
+    }
+}
+
+/// A folder's row: its icon, its name over how many items it has, and a
+/// chevron.
+fn folder_row(host: &mut std.Host, parent_: u32, path: str, name: str, a: alloc.Allocator) {
+    let row = dom.create_element(host, tag: "button");
+    dom.set_attribute(host, item: row, name: "class", value_: "frow");
+    var key = alloc.String.from("d:", a);
+    key.push_str(path);
+    dom.set_attribute(host, item: row, name: "data-k", value_: key.view());
+    let glyph = dom.create_element(host, tag: "span");
+    dom.set_attribute(host, item: glyph, name: "class", value_: "icon fill fold");
+    dom.set_text(host, item: glyph, text: "folder");
+    dom.append_child(host, parent_: row, child: glyph);
+    let lines = dom.create_element(host, tag: "div");
+    dom.set_attribute(host, item: lines, name: "class", value_: "lines");
+    line(host, parent_: lines, class: "primary", text: name, a: a);
+    var count = alloc.String.init(a);
+    items_said(items_in(host, path: path, a: a), out: &mut count);
+    line(host, parent_: lines, class: "secondary", text: count.view(), a: a);
+    dom.append_child(host, parent_: row, child: lines);
+    line(host, parent_: row, class: "icon chev", text: "chevron_right", a: a);
+    dom.append_child(host, parent_: parent_, child: row);
+}
+
+/// Browse: the storage's folders, under the kinds.
+fn show_browse(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    for old in dom.children(host, item: state.folder_rows, a: a).items() {
+        dom.release(host, item: old.*);
+    }
+    for e in files.list(host, path: "", a: a).items() {
+        if e.folder and not e.name.view().starts_with(".") {
+            folder_row(host, parent_: state.folder_rows, path: e.name.view(), name: e.name.view(), a: a);
+        }
+    }
+}
+
+/// A folder: where it is, its folders, then its files.
+fn show_folder(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    let p = state.path.view();
+    var cut = p.len();
+    while cut > 0 and p.bytes()[cut - 1] != '/' {
+        cut -= 1;
+    }
+    dom.set_text(host, item: state.folder_title, text: p[cut..p.len()]);
+    // Where it is: Internal storage, then each folder down to it.
+    for old in dom.children(host, item: state.crumbs, a: a).items() {
+        dom.release(host, item: old.*);
+    }
+    line(host, parent_: state.crumbs, class: "crumb", text: "Internal storage", a: a);
+    var from: usize = 0;
+    var at: usize = 0;
+    while at <= p.len() : (at += 1) {
+        if at == p.len() or p.bytes()[at] == '/' {
+            line(host, parent_: state.crumbs, class: "icon", text: "chevron_right", a: a);
+            if at == p.len() {
+                line(host, parent_: state.crumbs, class: "crumb at", text: p[from..at], a: a);
             } else {
-                dom.set_text(host, item: state.view_text, text: "No preview");
+                line(host, parent_: state.crumbs, class: "crumb", text: p[from..at], a: a);
             }
+            from = at + 1;
         }
-        none => {
-            dom.set_text(host, item: state.view_size, text: "");
-            dom.set_text(host, item: state.view_text, text: "Not there any more");
+    }
+    for old in dom.children(host, item: state.rows, a: a).items() {
+        dom.release(host, item: old.*);
+    }
+    let all = files.list(host, path: p, a: a);
+    var count: u64 = 0;
+    var pass: u32 = 0;
+    while pass < 2 : (pass += 1) {
+        for e in all.items() {
+            let n = e.name.view();
+            if n.starts_with(".") or e.folder != (pass == 0) {
+                continue;
+            }
+            count += 1;
+            let path = joined(path: p, name: n, a: a);
+            if e.folder {
+                folder_row(host, parent_: state.rows, path: path.view(), name: n, a: a);
+                continue;
+            }
+            let row = dom.create_element(host, tag: "button");
+            dom.set_attribute(host, item: row, name: "class", value_: "frow");
+            var key = alloc.String.from("f:", a);
+            key.push_str(path.view());
+            dom.set_attribute(host, item: row, name: "data-k", value_: key.view());
+            let box = dom.create_element(host, tag: "div");
+            dom.set_attribute(host, item: box, name: "class", value_: "fthumb");
+            dom.append_child(host, parent_: row, child: box);
+            tile_into(state, host: host, box: box, name: n, path: path.view(), a: a);
+            let lines = dom.create_element(host, tag: "div");
+            dom.set_attribute(host, item: lines, name: "class", value_: "lines");
+            line(host, parent_: lines, class: "primary", text: n, a: a);
+            var sz = alloc.String.init(a);
+            size_text(&mut sz, n: e.size);
+            line(host, parent_: lines, class: "secondary", text: sz.view(), a: a);
+            dom.append_child(host, parent_: row, child: lines);
+            dom.append_child(host, parent_: state.rows, child: row);
         }
+    }
+    if count == 0 {
+        let nothing = dom.create_element(host, tag: "div");
+        dom.set_attribute(host, item: nothing, name: "class", value_: "empty");
+        line(host, parent_: nothing, class: "icon", text: "folder_open", a: a);
+        line(host, parent_: nothing, class: "", text: "This folder is empty", a: a);
+        dom.append_child(host, parent_: state.rows, child: nothing);
+    }
+    // An empty folder, not one of the top's, can be deleted.
+    dom.toggle_class(host, item: state.drop, name: "hidden", on: cut == 0 or count > 0);
+}
+
+/// The file shown: its name and size; a picture fitted to the screen, a
+/// text's text, a song with Play.
+fn show_file(state: &mut Files, host: &mut std.Host, a: alloc.Allocator) {
+    let name = state.file.view();
+    dom.set_text(host, item: state.view_name, text: name);
+    let p = joined(path: state.path.view(), name: name, a: a);
+    var size: u64 = 0;
+    var there = false;
+    for e in files.list(host, path: state.path.view(), a: a).items() {
+        if e.name.view().eq(name) {
+            size = e.size;
+            there = true;
+        }
+    }
+    var sz = alloc.String.init(a);
+    if there {
+        size_text(&mut sz, n: size);
+    } else {
+        sz.push_str("Not there any more");
+    }
+    dom.set_text(host, item: state.view_size, text: sz.view());
+    let picture = is_picture(name);
+    dom.toggle_class(host, item: state.view_img, name: "hidden", on: not picture);
+    dom.toggle_class(host, item: state.play, name: "hidden", on: not is_song(name));
+    dom.toggle_class(host, item: state.view_text, name: "hidden", on: picture or is_song(name));
+    if picture {
+        match files.image(host, path: p.view(), max: WHOLE, into: state.whole) {
+            some(h) => {
+                state.whole = h;
+                var src = alloc.String.init(a);
+                src.push_u64(h as u64);
+                dom.set_attribute(host, item: state.view_img, name: "src", value_: src.view());
+            }
+            none => { }
+        }
+        return;
+    }
+    if is_song(name) or not there {
+        return;
+    }
+    let bytes = files.read_part(host, path: p.view(), from: 0, len: SHOWN as u32, a: a) orelse return;
+    var n = bytes.len();
+    // Cut at a whole character.
+    while n > 0 and n < bytes.len() and (bytes.items()[n] & 0xC0) == 0x80 {
+        n -= 1;
+    }
+    let shown = bytes.items()[0..n];
+    if text_like(shown) {
+        dom.set_text(host, item: state.view_text, text: utf8.as_str(shown));
+    } else {
+        dom.set_text(host, item: state.view_text, text: "No preview");
     }
 }
 
@@ -372,10 +923,24 @@ fn text_like(bytes: []u8) -> bool {
     return true;
 }
 
+/// The number s begins with.
+fn number(s: str) -> u64 {
+    var n: u64 = 0;
+    for c in s.bytes() {
+        if c.* < '0' or c.* > '9' {
+            break;
+        }
+        n = n * 10 + (c.* - '0') as u64;
+    }
+    return n;
+}
+
 /// A div of class with text, last under parent_.
 fn line(host: &mut std.Host, parent_: u32, class: str, text: str, a: alloc.Allocator) {
     let d = dom.create_element(host, tag: "div");
-    dom.set_attribute(host, item: d, name: "class", value_: class);
+    if class.len() > 0 {
+        dom.set_attribute(host, item: d, name: "class", value_: class);
+    }
     dom.set_text(host, item: d, text: text);
     dom.append_child(host, parent_: parent_, child: d);
 }

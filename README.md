@@ -2,12 +2,15 @@
 
 The Arche phone's files app, written in [Arche](https://github.com/arche-family/arche-lang): a WebAssembly component of the Arche phone's world, which the phone has from its first start. That world is Nimadir's mini-app world and what a phone adds to it, here the phone's shared files; its WIT is in `wit/` (from arche-os's `phone/wit`), and `world` names it. Nimadir's own shell, which has none of it, does not run it.
 
-It works like Android's Files app:
+It works like a phone's file manager (HyperOS's), two pages with tabs along the bottom:
 
-- The phone's shared files, a folder at a time: Pictures, Music, Documents and Download at the top. A folder's folders come first, then its files, each with its size.
-- A tap on a folder opens it, and ‹ goes up.
-- A tap on a file shows its name, its size and, when it is text, the text, with Back and Delete.
-- A new folder is its name typed and Make. An empty folder, not one of the top's, can be deleted from inside it.
+- Recent: the shared files, the newest first, under the day each was made (a camera's names say when), four across: each one's thumbnail or its kind's icon, its name, its size and its folder.
+- Browse: the kinds (Docs, Images, Videos, Music), each opening its folder, and the folders of the phone's storage with how many items each has; + makes a folder, its name typed in a sheet.
+- A folder shows where it is (Internal storage › Pictures), its folders first, then its files, a picture's thumbnail by its name; an empty folder, not one at the top, can be deleted.
+- A file opens: a picture fitted to the screen, a text's text, a song with Play (the phone world's `audio`); each with its size and Delete.
+- The phone's Back, and the arrow at the top, go back one.
+
+The phone decodes the pictures (`files.image`) and keeps their thumbnails, the gallery's size, so that one kept serves both.
 
 It reaches the shared files through the phone world's `files` interface (`list`, `read`, `write`, `make-folder`, `remove`), which the phone gives an app whose manifest needs `files`. It is an app of the page: its taps come as click events, and its typing as input events.
 
